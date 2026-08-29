@@ -38,7 +38,7 @@ Vision 호출(`VNImageRequestHandler.perform`, 동기 API)은 `Task { }` 안에�
 4. 사용자가 지정한 4점에서 계산한 사각형 회전각만큼 그 중심을 기준으로 회전시켜 기울어진 사진에서도 자연스럽게 만든다.
 5. 그림자를 적용한다.
 
-`PopOutCompositor.compose(baseImage:quad:cutout:extraScale:extraOffset:)`의 `extraScale`/`extraOffset`은 결과 화면에서 사용자가 드래그/핀치로 조정한 값이다(기본 1.0/.zero = 조정 없음) — Vision을 다시 부르지 않고 같은 마스크로 즉시 재합성한다. `CreationFlowViewModel.adjustmentChanged(scale:offset:)`가 이 재합성을 트리거한다.
+`PopOutCompositor.compose(baseImage:quad:cutout:extraScale:extraOffset:extraRotation:)`의 `extraScale`/`extraOffset`/`extraRotation`은 결과 화면에서 사용자가 드래그·핀치·두 손가락 회전으로 조정한 값이다(기본 1.0/.zero/0 = 조정 없음) — Vision을 다시 부르지 않고 같은 마스크로 즉시 재합성한다. `CreationFlowViewModel.adjustmentChanged(scale:offset:rotation:)`가 이 재합성을 트리거한다. `ResultView`는 `DragGesture`+`MagnificationGesture`+`RotationGesture`를 `SimultaneousGesture`로 중첩해서 셋을 동시에 받는다.
 
 정확한 기본 확대 배율(`enlargeScale`)은 스파이크·실기기 QA로 튜닝한 값이라, 다양한 사진으로 추가 검증 여지가 있다 — 다만 이제 사용자가 결과 화면에서 직접 보정할 수 있어 완벽한 자동값이 아니어도 된다.
 

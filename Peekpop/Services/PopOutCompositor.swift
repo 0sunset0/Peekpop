@@ -39,9 +39,11 @@ struct PopOutCompositor {
     ///   - extraScale: 자동 배치 크기에 곱해지는 사용자 조정 배율. 1.0 = 조정 없음.
     ///   - extraOffset: 크롭 중심 기준 사용자 조정 이동량, 이미지 픽셀 단위, top-down
     ///     좌표계(x: 오른쪽+, y: 아래쪽+). `.zero` = 조정 없음.
+    ///   - extraRotation: 사각형 기울기에 추가로 더해지는 사용자 조정 회전(라디안,
+    ///     시계 방향 +). 0 = 조정 없음.
     func compose(
         baseImage: CGImage, quad: ScreenQuad, cutout: CGImage,
-        extraScale: CGFloat = 1.0, extraOffset: CGPoint = .zero
+        extraScale: CGFloat = 1.0, extraOffset: CGPoint = .zero, extraRotation: CGFloat = 0
     ) -> CGImage? {
         let outW = baseImage.width, outH = baseImage.height
         guard let ctx = CGContext(
@@ -68,7 +70,7 @@ struct PopOutCompositor {
         ctx.saveGState()
         ctx.setShadow(offset: CGSize(width: 0, height: -22), blur: 40, color: CGColor(red: 0, green: 0, blue: 0, alpha: 0.7))
         ctx.translateBy(x: center.x, y: CGFloat(outH) - center.y)
-        ctx.rotate(by: -angle)
+        ctx.rotate(by: -angle + extraRotation)
         let drawRect = CGRect(x: -cutoutW / 2, y: -cutoutH / 2, width: cutoutW, height: cutoutH)
         ctx.draw(cutout, in: drawRect)
         ctx.restoreGState()

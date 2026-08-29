@@ -13,6 +13,7 @@ final class CreationFlowViewModel: ObservableObject {
     /// 그대로 전달돼 재합성에 쓰인다. 1.0/.zero면 자동 배치 그대로.
     @Published var adjustScale: CGFloat = 1.0
     @Published var adjustOffset: CGPoint = .zero
+    @Published var adjustRotation: CGFloat = 0
 
     private var maskedCutout: CGImage?
 
@@ -62,6 +63,7 @@ final class CreationFlowViewModel: ObservableObject {
         maskedCutout = mask
         adjustScale = 1.0
         adjustOffset = .zero
+        adjustRotation = 0
         guard let composed = compositor.compose(baseImage: image, quad: confirmedQuad, cutout: mask) else {
             screen = .error("이미지를 합성하지 못했어요.")
             return
@@ -73,13 +75,14 @@ final class CreationFlowViewModel: ObservableObject {
     /// 결과 화면에서 드래그/핀치로 위치·크기를 조정할 때마다 호출한다. 조정값을 반영해
     /// 즉시 재합성한다 — 원본 사진/사각형/마스크는 그대로 두고 배치만 다시 계산하므로
     /// Vision을 다시 호출하지 않는다(빠름).
-    func adjustmentChanged(scale: CGFloat, offset: CGPoint) {
+    func adjustmentChanged(scale: CGFloat, offset: CGPoint, rotation: CGFloat) {
         adjustScale = scale
         adjustOffset = offset
+        adjustRotation = rotation
         guard let image = selectedImage, let cutout = maskedCutout else { return }
         if let composed = compositor.compose(
             baseImage: image, quad: quad, cutout: cutout,
-            extraScale: scale, extraOffset: offset
+            extraScale: scale, extraOffset: offset, extraRotation: rotation
         ) {
             resultImage = composed
         }

@@ -13,9 +13,11 @@ struct ResultView: View {
     /// 직전 제스처들이 확정(commit)된 누적값.
     @State private var committedScale: CGFloat = 1.0
     @State private var committedOffset: CGPoint = .zero
+    @State private var committedRotation: Angle = .zero
     /// 지금 진행 중인 제스처의 델타(제스처가 끝나면 committed로 합쳐지고 0으로 리셋).
     @State private var liveScaleDelta: CGFloat = 1.0
     @State private var liveOffsetDelta: CGSize = .zero
+    @State private var liveRotationDelta: Angle = .zero
 
     var body: some View {
         VStack(spacing: 24) {
@@ -32,26 +34,39 @@ struct ResultView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 12))
                         .gesture(
                             SimultaneousGesture(
-                                DragGesture()
+                                SimultaneousGesture(
+                                    DragGesture()
+                                        .onChanged { value in
+                                            liveOffsetDelta = value.translation
+                                            applyAdjustment(pixelsPerPoint: pixelsPerPoint)
+                                        }
+                                        .onEnded { value in
+                                            committedOffset.x += value.translation.width * pixelsPerPoint
+                                            committedOffset.y += value.translation.height * pixelsPerPoint
+                                            liveOffsetDelta = .zero
+                                            applyAdjustment(pixelsPerPoint: pixelsPerPoint)
+                                            prepareShareURL()
+                                        },
+                                    MagnificationGesture()
+                                        .onChanged { value in
+                                            liveScaleDelta = value
+                                            applyAdjustment(pixelsPerPoint: pixelsPerPoint)
+                                        }
+                                        .onEnded { value in
+                                            committedScale *= value
+                                            liveScaleDelta = 1.0
+                                            applyAdjustment(pixelsPerPoint: pixelsPerPoint)
+                                            prepareShareURL()
+                                        }
+                                ),
+                                RotationGesture()
                                     .onChanged { value in
-                                        liveOffsetDelta = value.translation
+                                        liveRotationDelta = value
                                         applyAdjustment(pixelsPerPoint: pixelsPerPoint)
                                     }
                                     .onEnded { value in
-                                        committedOffset.x += value.translation.width * pixelsPerPoint
-                                        committedOffset.y += value.translation.height * pixelsPerPoint
-                                        liveOffsetDelta = .zero
-                                        applyAdjustment(pixelsPerPoint: pixelsPerPoint)
-                                        prepareShareURL()
-                                    },
-                                MagnificationGesture()
-                                    .onChanged { value in
-                                        liveScaleDelta = value
-                                        applyAdjustment(pixelsPerPoint: pixelsPerPoint)
-                                    }
-                                    .onEnded { value in
-                                        committedScale *= value
-                                        liveScaleDelta = 1.0
+                                        committedRotation += value
+                                        liveRotationDelta = .zero
                                         applyAdjustment(pixelsPerPoint: pixelsPerPoint)
                                         prepareShareURL()
                                     }
@@ -61,7 +76,7 @@ struct ResultView: View {
                 .padding()
             }
 
-            Text("드래그로 위치, 두 손가락으로 크기를 조정할 수 있어요")
+            Text("드래그로 위치, 두 손가락으로 크기·회전을 조정할 수 있어요")
                 .font(.footnote)
                 .foregroundStyle(.white.opacity(0.7))
 
@@ -97,7 +112,8 @@ struct ResultView: View {
             x: committedOffset.x + liveOffsetDelta.width * pixelsPerPoint,
             y: committedOffset.y + liveOffsetDelta.height * pixelsPerPoint
         )
-        viewModel.adjustmentChanged(scale: scale, offset: offset)
+        let rotation = (committedRotation + liveRotationDelta).radians
+        viewModel.adjustmentChanged(scale: scale, offset: offset, rotation: rotation)
     }
 
     /// `.scaledToFit()`이 `imageSize`를 `containerSize` 안에 어떤 크기로 그리는지 계산한다.
