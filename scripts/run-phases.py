@@ -133,6 +133,18 @@ def run_phase(task_dir: str, task_index_path: Path, task_index: dict, phase_entr
     return status
 
 
+def ensure_branch(task_name: str) -> None:
+    branch = f"feat-{task_name}"
+    existing = git("branch", "--list", branch).stdout.strip()
+    current = git("rev-parse", "--abbrev-ref", "HEAD").stdout.strip()
+    if current == branch:
+        return
+    if existing:
+        git("checkout", branch)
+    else:
+        git("checkout", "-b", branch)
+
+
 def main() -> None:
     if len(sys.argv) != 2:
         print("usage: python3 scripts/run-phases.py <task-dir>")
@@ -143,6 +155,9 @@ def main() -> None:
     if not task_index_path.exists():
         print(f"no such task: {task_index_path}")
         sys.exit(1)
+
+    task_index = load_json(task_index_path)
+    ensure_branch(task_index["task"])
 
     top_index_path = TASKS_DIR / "index.json"
 
