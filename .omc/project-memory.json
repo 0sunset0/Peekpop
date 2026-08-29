@@ -129,9 +129,33 @@
   },
   "hotPaths": [
     {
+      "path": "tasks/0-mvp-v0/index.json",
+      "accessCount": 3,
+      "lastAccessed": 1787991705810,
+      "type": "file"
+    },
+    {
       "path": "docs/code-architecture.md",
-      "accessCount": 1,
-      "lastAccessed": 1787991469310,
+      "accessCount": 2,
+      "lastAccessed": 1787991620226,
+      "type": "file"
+    },
+    {
+      "path": "docs/testing.md",
+      "accessCount": 2,
+      "lastAccessed": 1787991621398,
+      "type": "file"
+    },
+    {
+      "path": "Peekpop/Shared/ScreenQuad.swift",
+      "accessCount": 2,
+      "lastAccessed": 1787991626352,
+      "type": "file"
+    },
+    {
+      "path": "Peekpop/Services/PopOutCompositor.swift",
+      "accessCount": 2,
+      "lastAccessed": 1787991627979,
       "type": "file"
     },
     {
@@ -141,33 +165,45 @@
       "type": "file"
     },
     {
-      "path": "docs/testing.md",
-      "accessCount": 1,
-      "lastAccessed": 1787991469918,
-      "type": "file"
-    },
-    {
-      "path": "Peekpop/Shared/ScreenQuad.swift",
-      "accessCount": 1,
-      "lastAccessed": 1787991470796,
-      "type": "file"
-    },
-    {
-      "path": "Peekpop/Services/PopOutCompositor.swift",
-      "accessCount": 1,
-      "lastAccessed": 1787991486766,
-      "type": "file"
-    },
-    {
       "path": "PeekpopTests/PopOutCompositorTests.swift",
       "accessCount": 1,
       "lastAccessed": 1787991492693,
       "type": "file"
     },
     {
-      "path": "tasks/0-mvp-v0/index.json",
+      "path": "docs/flow.md",
       "accessCount": 1,
-      "lastAccessed": 1787991529600,
+      "lastAccessed": 1787991620804,
+      "type": "file"
+    },
+    {
+      "path": "Peekpop/Shared/Screen.swift",
+      "accessCount": 1,
+      "lastAccessed": 1787991626851,
+      "type": "file"
+    },
+    {
+      "path": "Peekpop/Services/PhoneFrameDetector.swift",
+      "accessCount": 1,
+      "lastAccessed": 1787991627305,
+      "type": "file"
+    },
+    {
+      "path": "Peekpop/Services/SubjectSegmenter.swift",
+      "accessCount": 1,
+      "lastAccessed": 1787991627911,
+      "type": "file"
+    },
+    {
+      "path": "Peekpop/Flow/CreationFlowViewModel.swift",
+      "accessCount": 1,
+      "lastAccessed": 1787991643558,
+      "type": "file"
+    },
+    {
+      "path": "PeekpopTests/CreationFlowViewModelTests.swift",
+      "accessCount": 1,
+      "lastAccessed": 1787991650482,
       "type": "file"
     }
   ],

@@ -5,7 +5,13 @@
     {
       "sessionId": "34e7dfe7-199d-462f-81fb-b069412c332d",
       "attempts": 0,
-      "retryAt": "2026-08-29T08:19:01.503Z"
+      "retryAt": "2026-08-29T08:19:01.503Z",
+      "acknowledgedAt": "2026-08-29T08:19:02.948Z"
+    },
+    {
+      "sessionId": "95f41746-c7d0-47ff-bdfd-6aff009b9036",
+      "attempts": 0,
+      "retryAt": "2026-08-29T08:21:55.925Z"
     }
   ]
 }
