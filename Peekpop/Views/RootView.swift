@@ -13,7 +13,7 @@ struct RootView: View {
             case .processing:
                 ProcessingView()
             case .result:
-                ProcessingView() // Phase 10에서 ResultView로 교체
+                ResultView(viewModel: viewModel)
             case .error(let message):
                 ErrorView(message: message, viewModel: viewModel)
             }

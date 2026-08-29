@@ -69,7 +69,8 @@
     {
       "phase": 10,
       "name": "result-view",
-      "status": "pending"
+      "status": "completed",
+      "started_at": "2026-08-29T17:29:45+0900"
     },
     {
       "phase": 11,

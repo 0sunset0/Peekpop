@@ -23,6 +23,7 @@
 		64DCAD6A3A18D10E606C4A5A /* phone-front-facing.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F2C8656E2D70BC2BBAA8E4E /* phone-front-facing.png */; };
 		6FAAE10B5C60E8FE8408077D /* PhoneFrameDetectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC0F829C74E4041DEF54CEA /* PhoneFrameDetectorTests.swift */; };
 		879AD0D3149BDD04C53E4C14 /* ProcessingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E225B20B3E9CA18F8C390E /* ProcessingView.swift */; };
+		8DB087BF36BB6BFBF999C6C6 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375C31F08CAABB922E4D3ACB /* ResultView.swift */; };
 		A3C488EEBC1ADFB428291412 /* PhoneFrameDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019DA4C1DFB5B980295ABB7C /* PhoneFrameDetector.swift */; };
 		CAB2626DB09191E9558098F1 /* SubjectSegmenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B3A939D1064249BF0CCFD2 /* SubjectSegmenter.swift */; };
 		CEDFCD4BAE5AF5F058E482D1 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFC3213B7CCCD1764749F27 /* MainView.swift */; };
@@ -56,6 +57,7 @@
 		2D275AB179A972BC49DEEAA0 /* phone-tilted-landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone-tilted-landscape.png"; sourceTree = "<group>"; };
 		362F84BFAF9D42B322D7C440 /* PopOutCompositorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOutCompositorTests.swift; sourceTree = "<group>"; };
 		36D22C1A9DAFCE0994FF05BC /* PeekpopTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = PeekpopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		375C31F08CAABB922E4D3ACB /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		59DC39539F3A374B3C79AB77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		694CF19DC41FFFC42AB3EBFD /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		6FDF550FCD7C2A24A839D77C /* Peekpop.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Peekpop.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,6 +135,7 @@
 				1DFC3213B7CCCD1764749F27 /* MainView.swift */,
 				694CF19DC41FFFC42AB3EBFD /* PhotoPicker.swift */,
 				03E225B20B3E9CA18F8C390E /* ProcessingView.swift */,
+				375C31F08CAABB922E4D3ACB /* ResultView.swift */,
 				F6A84459A2BA1354348D3792 /* RootView.swift */,
 			);
 			path = Views;
@@ -283,6 +286,7 @@
 				4B353E2A35C64758082B413A /* PhotoPicker.swift in Sources */,
 				61294BF907FF1D2AC5A3437B /* PopOutCompositor.swift in Sources */,
 				879AD0D3149BDD04C53E4C14 /* ProcessingView.swift in Sources */,
+				8DB087BF36BB6BFBF999C6C6 /* ResultView.swift in Sources */,
 				2639D06DB7FE766DC87EA44B /* RootView.swift in Sources */,
 				F9A5D4C932F63E819B546993 /* Screen.swift in Sources */,
 				F1CC67B0C6D1CA3CA5D34D51 /* ScreenQuad.swift in Sources */,
