@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Peekpop 개인정보처리방침</title>
+<style>
+  :root {
+    --bg: #fafaf9;
+    --surface: #ffffff;
+    --border: #e8e3e1;
+    --text: #1c1c1e;
+    --text-muted: #857478;
+    --accent: #e64d68;
+    --accent-soft: #fdeef1;
+    --serif: 'Gowun Batang', ui-serif, Georgia, serif;
+    --sans: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #000000;
+      --surface: #121113;
+      --border: #2a2729;
+      --text: #f4f0f1;
+      --text-muted: #b9a9ad;
+      --accent: #ff5c7a;
+      --accent-soft: #2a1418;
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  main {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 72px 24px 96px;
+  }
+
+  .eyebrow {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: clamp(1.9rem, 4.5vw, 2.6rem);
+    line-height: 1.3;
+    margin: 14px 0 8px;
+    text-wrap: balance;
+  }
+
+  .meta {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+    margin-bottom: 40px;
+  }
+
+  .lede {
+    font-size: 1.02rem;
+    color: var(--text);
+    border-left: 3px solid var(--accent);
+    background: var(--accent-soft);
+    padding: 16px 20px;
+    border-radius: 4px;
+    margin-bottom: 48px;
+  }
+
+  section {
+    padding: 28px 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .num {
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+  }
+
+  h2 {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 1.18rem;
+    margin: 4px 0 12px;
+  }
+
+  p { margin: 0 0 12px; max-width: 62ch; }
+  p:last-child { margin-bottom: 0; }
+
+  ul { margin: 0 0 12px; padding-left: 1.2em; max-width: 62ch; }
+  li { margin-bottom: 6px; }
+
+  strong { font-weight: 700; }
+
+  .contact {
+    margin-top: 48px;
+    padding: 22px 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+  }
+  .contact h2 { margin-top: 0; }
+  .contact a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+  }
+  .contact a:hover, .contact a:focus-visible { border-bottom-color: var(--accent); }
+  .contact a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  footer {
+    margin-top: 40px;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+  }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<main>
+  <div class="eyebrow">Privacy Policy</div>
+  <h1>Peekpop 개인정보처리방침</h1>
+  <div class="meta">시행일 2026-08-30</div>
+
+  <p class="lede">
+    Peekpop은 회원가입도, 서버도, 인터넷 연결도 필요 없는 앱이에요. 사진 처리는 전부
+    기기 안에서 끝나고, 어떤 개인정보도 수집하지 않습니다.
+  </p>
+
+  <section>
+    <div class="num">01</div>
+    <h2>수집하는 개인정보</h2>
+    <p>
+      Peekpop은 회원가입이나 로그인을 요구하지 않습니다. 이름, 이메일, 전화번호,
+      기기 식별자 등 어떠한 개인 식별 정보도 수집하지 않습니다.
+    </p>
+  </section>
+
+  <section>
+    <div class="num">02</div>
+    <h2>카메라 및 사진 접근</h2>
+    <p>앱은 다음 두 가지 목적으로만 카메라와 사진 보관함에 접근합니다.</p>
+    <ul>
+      <li>카메라 — 사용자가 앱 안에서 직접 사진을 촬영할 수 있도록</li>
+      <li>사진 보관함 — 기존 사진을 선택하거나, 완성된 결과물을 저장할 수 있도록</li>
+    </ul>
+    <p>
+      이 과정에서 사용된 사진은 <strong>기기 안에서만 처리</strong>되며 어떤 서버로도
+      전송되지 않습니다. 화면 인식, 인물 분리, 합성까지 모든 처리는 iOS에 내장된 Apple
+      Vision 프레임워크로 완전히 온디바이스에서 이루어지고, 앱 자체는 네트워크 연결
+      없이도 동작합니다.
+    </p>
+    <p>
+      처리 중인 사진은 앱을 사용하는 동안만 기기의 메모리에 존재하고, 앱은 이를
+      별도로 저장하거나 보관하지 않습니다. 완성된 결과물은 사용자가 <strong>저장</strong>
+      버튼을 직접 눌렀을 때만 기기의 사진 보관함에 저장됩니다.
+    </p>
+  </section>
+
+  <section>
+    <div class="num">03</div>
+    <h2>기기에 저장되는 정보</h2>
+    <p>
+      현재 버전의 Peekpop은 기기에 저장하는 사용자 데이터가 없습니다. 이후 버전에서
+      앱 이용 방식과 관련된 값(예: 설정 상태)이 기기 로컬에 추가될 수 있으나, 이 값은
+      기기 밖으로 전송되지 않으며 개인을 식별하는 정보를 포함하지 않습니다.
+    </p>
+  </section>
+
+  <section>
+    <div class="num">04</div>
+    <h2>제3자 제공 및 트래킹</h2>
+    <p>
+      Peekpop은 어떠한 개인정보도 제3자에게 제공, 판매, 공유하지 않습니다. 광고 SDK,
+      분석(애널리틱스) 도구, 트래킹 도구를 사용하지 않습니다.
+    </p>
+  </section>
+
+  <section>
+    <div class="num">05</div>
+    <h2>계정 및 로그인</h2>
+    <p>Peekpop은 별도의 회원가입이나 로그인 기능을 제공하지 않습니다.</p>
+  </section>
+
+  <section>
+    <div class="num">06</div>
+    <h2>아동의 개인정보</h2>
+    <p>
+      Peekpop은 개인정보를 수집하지 않으므로, 만 14세 미만 아동을 포함한 모든 연령의
+      사용자로부터 개인정보를 수집하지 않습니다.
+    </p>
+  </section>
+
+  <section>
+    <div class="num">07</div>
+    <h2>이 방침의 변경</h2>
+    <p>
+      이 방침은 법령, 정책 또는 서비스 변경에 따라 개정될 수 있으며, 변경 시 이
+      페이지를 통해 공지합니다.
+    </p>
+  </section>
+
+  <div class="contact">
+    <h2>문의</h2>
+    <p>개인정보 처리와 관련해 궁금한 점이 있으시면 아래로 연락해 주세요.</p>
+    <p><a href="mailto:printf.sunset@gmail.com">printf.sunset@gmail.com</a></p>
+  </div>
+
+  <footer>Peekpop &middot; 온디바이스 사진 편집 앱</footer>
+</main>
+</body>
+</html>
