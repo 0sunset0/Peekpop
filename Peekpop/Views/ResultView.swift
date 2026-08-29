@@ -102,27 +102,35 @@ struct ResultView: View {
                 .font(.footnote)
                 .foregroundStyle(.white.opacity(0.7))
 
-            HStack(spacing: 16) {
-                Button {
-                    Task { await save() }
-                } label: {
-                    Image(systemName: "square.and.arrow.down")
-                }
-                .buttonStyle(PrimaryButtonStyle())
+            // 저장이 이 화면의 메인 액션 — 꽉 찬 primary 버튼으로 제일 눈에 띄게.
+            Button {
+                Task { await save() }
+            } label: {
+                Label("저장", systemImage: "square.and.arrow.down")
+            }
+            .buttonStyle(PrimaryButtonStyle())
+            .padding(.horizontal, 24)
 
+            // 공유는 보조 액션 — 작은 원형 아이콘 버튼. 다시 만들기는 되돌리는 행동이라
+            // 배경 없는 텍스트 링크로 격을 낮춘다(둘 다 저장과 동급으로 보이면 안 됨).
+            HStack(spacing: 24) {
                 if let shareURL {
                     ShareLink(item: shareURL) {
                         Image(systemName: "square.and.arrow.up")
+                            .font(.system(size: 18, weight: .medium))
+                            .foregroundStyle(.white)
+                            .frame(width: 44, height: 44)
+                            .background(Color.white.opacity(0.15))
+                            .clipShape(Circle())
                     }
-                    .buttonStyle(PrimaryButtonStyle())
                 }
 
                 Button("다시 만들기") {
                     viewModel.startOver()
                 }
-                .buttonStyle(PrimaryButtonStyle())
+                .font(.subheadline)
+                .foregroundStyle(.white.opacity(0.75))
             }
-            .padding(.horizontal, 24)
         }
         .background(Color.black.ignoresSafeArea())
         .task { prepareShareURL() }
