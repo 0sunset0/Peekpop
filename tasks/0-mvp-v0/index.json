@@ -45,7 +45,8 @@
     {
       "phase": 6,
       "name": "creation-flow-viewmodel",
-      "status": "pending"
+      "status": "completed",
+      "started_at": "2026-08-29T17:20:12+0900"
     },
     {
       "phase": 7,
