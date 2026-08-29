@@ -25,7 +25,7 @@ struct BoundaryConfirmView: View {
                                 .font(.system(size: 18, weight: .semibold))
                                 .foregroundStyle(.white)
                                 .frame(width: 36, height: 36)
-                                .background(Color.peekpopSurface)
+                                .background(Color.peekpopSurface.opacity(0.6))
                                 .clipShape(Circle())
                         }
                         .padding()
@@ -41,7 +41,7 @@ struct BoundaryConfirmView: View {
                         Task { await viewModel.confirmBoundary(localQuad) }
                     }
                     .buttonStyle(PrimaryButtonStyle())
-                    .padding(.horizontal, 48)
+                    .padding(.horizontal, 24)
                     .padding(.bottom, 24)
                 }
             }

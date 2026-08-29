@@ -33,7 +33,7 @@ struct MainView: View {
                 viewModel.mainButtonTapped()
             }
             .buttonStyle(PrimaryButtonStyle())
-            .padding(.horizontal, 48)
+            .padding(.horizontal, 24)
         }
         .padding()
         .background(Color.black.ignoresSafeArea())

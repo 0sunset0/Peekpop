@@ -27,7 +27,7 @@ struct ErrorView: View {
                 }
                 .buttonStyle(PrimaryButtonStyle())
             }
-            .padding(.horizontal, 32)
+            .padding(.horizontal, 24)
         }
     }
 }
