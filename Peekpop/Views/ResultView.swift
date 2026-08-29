@@ -102,18 +102,17 @@ struct ResultView: View {
                 .font(.footnote)
                 .foregroundStyle(.white.opacity(0.7))
 
-            // 저장이 이 화면의 메인 액션 — 꽉 찬 primary 버튼으로 제일 눈에 띄게.
-            Button {
-                Task { await save() }
-            } label: {
-                Label("저장", systemImage: "square.and.arrow.down")
-            }
-            .buttonStyle(PrimaryButtonStyle())
-            .padding(.horizontal, 24)
+            // 저장이 이 화면의 메인 액션 — 꽉 찬 primary 버튼, 공유는 바로 옆에 붙는 작은
+            // 원형 아이콘 버튼(같은 줄, 저장이 남은 공간을 채움). 다시 만들기는 되돌리는
+            // 행동이라 따로 아래에 배경 없는 텍스트 링크로 격을 낮춘다.
+            HStack(spacing: 12) {
+                Button {
+                    Task { await save() }
+                } label: {
+                    Label("저장", systemImage: "square.and.arrow.down")
+                }
+                .buttonStyle(PrimaryButtonStyle())
 
-            // 공유는 보조 액션 — 작은 원형 아이콘 버튼. 다시 만들기는 되돌리는 행동이라
-            // 배경 없는 텍스트 링크로 격을 낮춘다(둘 다 저장과 동급으로 보이면 안 됨).
-            HStack(spacing: 24) {
                 if let shareURL {
                     ShareLink(item: shareURL) {
                         Image(systemName: "square.and.arrow.up")
@@ -124,13 +123,14 @@ struct ResultView: View {
                             .clipShape(Circle())
                     }
                 }
-
-                Button("다시 만들기") {
-                    viewModel.startOver()
-                }
-                .font(.subheadline)
-                .foregroundStyle(.white.opacity(0.75))
             }
+            .padding(.horizontal, 24)
+
+            Button("다시 만들기") {
+                viewModel.startOver()
+            }
+            .font(.subheadline)
+            .foregroundStyle(.white.opacity(0.75))
         }
         .background(Color.black.ignoresSafeArea())
         .task { prepareShareURL() }
