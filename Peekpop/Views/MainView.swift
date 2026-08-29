@@ -35,14 +35,18 @@ struct MainView: View {
             }
             .buttonStyle(PrimaryButtonStyle())
             .padding(.horizontal, 24)
+            // 이 버튼에 직접 붙여야 iOS가 팝업(iOS 26 Liquid Glass 스타일 confirmationDialog는
+            // 하단 시트가 아니라 앵커 위치에 뜨는 말풍선 형태)을 이 버튼 기준으로 띄운다.
+            // 바깥 VStack에 붙어 있으면 화면 전체를 앵커로 잡아서 엉뚱하게(예시 사진 위)
+            // 뜬다 — 실기기 QA로 발견.
+            .confirmationDialog("사진 선택", isPresented: $viewModel.isPickerPresented, titleVisibility: .hidden) {
+                Button("카메라로 촬영") { presentCamera = true }
+                Button("앨범에서 선택") { presentLibrary = true }
+                Button("취소", role: .cancel) {}
+            }
         }
         .padding()
         .background(Color.black.ignoresSafeArea())
-        .confirmationDialog("사진 선택", isPresented: $viewModel.isPickerPresented, titleVisibility: .hidden) {
-            Button("카메라로 촬영") { presentCamera = true }
-            Button("앨범에서 선택") { presentLibrary = true }
-            Button("취소", role: .cancel) {}
-        }
         .fullScreenCover(isPresented: $presentCamera) {
             CameraPicker { image in
                 presentCamera = false
