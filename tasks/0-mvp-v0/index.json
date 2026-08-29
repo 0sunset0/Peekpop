@@ -51,7 +51,8 @@
     {
       "phase": 7,
       "name": "main-view-picker",
-      "status": "pending"
+      "status": "completed",
+      "started_at": "2026-08-29T17:26:38+0900"
     },
     {
       "phase": 8,
