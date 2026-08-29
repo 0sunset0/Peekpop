@@ -32,11 +32,16 @@ struct BoundaryConfirmView: View {
                         Spacer()
                     }
                     Spacer()
-                    Text("화면에 보이는 사진이 네 꼭짓점 안에\n전부 들어오도록 맞춰주세요 (머리 위쪽까지!)")
+                    Text("노란 점을 움직여서 폰 화면 테두리에 맞춰주세요")
                         .font(.title3.weight(.semibold))
                         .multilineTextAlignment(.center)
                         .foregroundStyle(.white)
-                        .padding(.bottom, 8)
+                        .padding(.horizontal, 20)
+                        .padding(.vertical, 14)
+                        .background(Color.peekpopSurface)
+                        .clipShape(RoundedRectangle(cornerRadius: 16))
+                        .padding(.horizontal, 24)
+                        .padding(.bottom, 16)
                     Button("확인") {
                         Task { await viewModel.confirmBoundary(localQuad) }
                     }
