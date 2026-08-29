@@ -24,8 +24,13 @@ struct SubjectSegmenter {
               let topInstance = observation.allInstances.sorted().first else {
             return nil
         }
+        // croppedToInstancesExtent: false — keep the mask at the SAME size/position as
+        // `croppedImage`, with the subject left in its natural place and everything
+        // else transparent. PopOutCompositor relies on this to place the pop-out
+        // directly over where the subject already is in the photo (docs/ade.md) —
+        // a tightly-cropped cutout (true) throws that position away.
         guard let pixelBuffer = try? observation.generateMaskedImage(
-            ofInstances: [topInstance], from: handler, croppedToInstancesExtent: true
+            ofInstances: [topInstance], from: handler, croppedToInstancesExtent: false
         ) else { return nil }
 
         let ciImage = CIImage(cvPixelBuffer: pixelBuffer)

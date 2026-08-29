@@ -75,13 +75,10 @@ final class CreationFlowViewModel: ObservableObject {
         isPickerPresented = true
     }
 
+    /// PopOutCompositor.boundingRect와 반드시 같은 계산이어야 한다 — compositor가 이
+    /// 크롭과 같은 위치/크기의 cutout을 가정하고 원래 자리 위에 확대해서 그린다.
     private func croppedImage(from image: CGImage, quad: ScreenQuad) -> CGImage? {
-        let w = CGFloat(image.width), h = CGFloat(image.height)
-        let minX = min(quad.topLeft.x, quad.bottomLeft.x) * w
-        let maxX = max(quad.topRight.x, quad.bottomRight.x) * w
-        let minY = min(quad.topLeft.y, quad.topRight.y) * h
-        let maxY = max(quad.bottomLeft.y, quad.bottomRight.y) * h
-        let rect = CGRect(x: minX, y: minY, width: maxX - minX, height: maxY - minY)
+        let rect = PopOutCompositor.boundingRect(for: quad, imageWidth: image.width, imageHeight: image.height)
         return image.cropping(to: rect)
     }
 }
