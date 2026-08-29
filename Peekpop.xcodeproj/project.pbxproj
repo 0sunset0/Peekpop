@@ -1,0 +1,436 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		059AF32C6549EE8D21942050 /* phone-in-flight.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A6C7418DBDF242E568F1560 /* phone-in-flight.png */; };
+		242906E60524E06C7636CF1B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 1CA6A5802CCD58A7B0C91491 /* PrivacyInfo.xcprivacy */; };
+		40E7614552313C1D46C2C170 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59DC39539F3A374B3C79AB77 /* Assets.xcassets */; };
+		47BA8FB25CD93B1877083EC1 /* phone-recording.png in Resources */ = {isa = PBXBuildFile; fileRef = 963F0E2DD7F6B4D09759EEBD /* phone-recording.png */; };
+		48E3CE752A82D49355237785 /* phone-tilted-landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D275AB179A972BC49DEEAA0 /* phone-tilted-landscape.png */; };
+		63CB6305E04577C01306EFD9 /* PeekpopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF51204F66CC9191DA531E94 /* PeekpopApp.swift */; };
+		64DCAD6A3A18D10E606C4A5A /* phone-front-facing.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F2C8656E2D70BC2BBAA8E4E /* phone-front-facing.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4225FB0087678C28801C114F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 91A85E9550E958819D7AEC01 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 43BF67E24D3F2CCA5210CB40;
+			remoteInfo = Peekpop;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1A6C7418DBDF242E568F1560 /* phone-in-flight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone-in-flight.png"; sourceTree = "<group>"; };
+		1CA6A5802CCD58A7B0C91491 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		2D275AB179A972BC49DEEAA0 /* phone-tilted-landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone-tilted-landscape.png"; sourceTree = "<group>"; };
+		36D22C1A9DAFCE0994FF05BC /* PeekpopTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = PeekpopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		59DC39539F3A374B3C79AB77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6FDF550FCD7C2A24A839D77C /* Peekpop.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Peekpop.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		718E5D54581074BFE3565783 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		7F2C8656E2D70BC2BBAA8E4E /* phone-front-facing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone-front-facing.png"; sourceTree = "<group>"; };
+		963F0E2DD7F6B4D09759EEBD /* phone-recording.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone-recording.png"; sourceTree = "<group>"; };
+		CF51204F66CC9191DA531E94 /* PeekpopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeekpopApp.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		32F63A418FFB0C00160B5911 /* PeekpopTests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PeekpopTests;
+			sourceTree = "<group>";
+		};
+		866C23FBE8F388F45389C179 /* Peekpop */ = {
+			isa = PBXGroup;
+			children = (
+				59DC39539F3A374B3C79AB77 /* Assets.xcassets */,
+				718E5D54581074BFE3565783 /* Info.plist */,
+				CF51204F66CC9191DA531E94 /* PeekpopApp.swift */,
+				1CA6A5802CCD58A7B0C91491 /* PrivacyInfo.xcprivacy */,
+			);
+			path = Peekpop;
+			sourceTree = "<group>";
+		};
+		8E74DA10128663D97B4DFCE7 /* TestFixtures */ = {
+			isa = PBXGroup;
+			children = (
+				7F2C8656E2D70BC2BBAA8E4E /* phone-front-facing.png */,
+				1A6C7418DBDF242E568F1560 /* phone-in-flight.png */,
+				963F0E2DD7F6B4D09759EEBD /* phone-recording.png */,
+				2D275AB179A972BC49DEEAA0 /* phone-tilted-landscape.png */,
+			);
+			path = TestFixtures;
+			sourceTree = "<group>";
+		};
+		9703027D6FF9ED35AA8588F2 = {
+			isa = PBXGroup;
+			children = (
+				866C23FBE8F388F45389C179 /* Peekpop */,
+				32F63A418FFB0C00160B5911 /* PeekpopTests */,
+				8E74DA10128663D97B4DFCE7 /* TestFixtures */,
+				EEEAAFBC2931A2CB89F3D2B2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EEEAAFBC2931A2CB89F3D2B2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6FDF550FCD7C2A24A839D77C /* Peekpop.app */,
+				36D22C1A9DAFCE0994FF05BC /* PeekpopTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		43BF67E24D3F2CCA5210CB40 /* Peekpop */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E68B31DF7E69790CB4B64717 /* Build configuration list for PBXNativeTarget "Peekpop" */;
+			buildPhases = (
+				058BC9331FCF602C3615D6BB /* Sources */,
+				BECE9A7801C58C4004BC70DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Peekpop;
+			packageProductDependencies = (
+			);
+			productName = Peekpop;
+			productReference = 6FDF550FCD7C2A24A839D77C /* Peekpop.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E18DB284439F87B44E30D271 /* PeekpopTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F4C5C3A109E519F7B9CED579 /* Build configuration list for PBXNativeTarget "PeekpopTests" */;
+			buildPhases = (
+				1E8B26E4AA485DFEF79B1C7F /* Sources */,
+				63B7310DB1DE8A7454BA73C6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D2C16D2AE021B99B1DA6DC6C /* PBXTargetDependency */,
+			);
+			name = PeekpopTests;
+			packageProductDependencies = (
+			);
+			productName = PeekpopTests;
+			productReference = 36D22C1A9DAFCE0994FF05BC /* PeekpopTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		91A85E9550E958819D7AEC01 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+				};
+			};
+			buildConfigurationList = 262F31C8355FE2A973DDB191 /* Build configuration list for PBXProject "Peekpop" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 9703027D6FF9ED35AA8588F2;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = EEEAAFBC2931A2CB89F3D2B2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				43BF67E24D3F2CCA5210CB40 /* Peekpop */,
+				E18DB284439F87B44E30D271 /* PeekpopTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		63B7310DB1DE8A7454BA73C6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64DCAD6A3A18D10E606C4A5A /* phone-front-facing.png in Resources */,
+				059AF32C6549EE8D21942050 /* phone-in-flight.png in Resources */,
+				47BA8FB25CD93B1877083EC1 /* phone-recording.png in Resources */,
+				48E3CE752A82D49355237785 /* phone-tilted-landscape.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BECE9A7801C58C4004BC70DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40E7614552313C1D46C2C170 /* Assets.xcassets in Resources */,
+				242906E60524E06C7636CF1B /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		058BC9331FCF602C3615D6BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63CB6305E04577C01306EFD9 /* PeekpopApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1E8B26E4AA485DFEF79B1C7F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D2C16D2AE021B99B1DA6DC6C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 43BF67E24D3F2CCA5210CB40 /* Peekpop */;
+			targetProxy = 4225FB0087678C28801C114F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2538EF2D91FB590D420903D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Peekpop/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.peekpop.Peekpop;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		270B5F145D73767D777AE230 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.peekpop.PeekpopTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Peekpop.app/Peekpop";
+			};
+			name = Release;
+		};
+		34908A567E44253C56C86CB1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Peekpop/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.peekpop.Peekpop;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		4F778DAD2580E301750114CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		7749D8451BBD062761AD6AB1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.peekpop.PeekpopTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Peekpop.app/Peekpop";
+			};
+			name = Debug;
+		};
+		80A0B1F66BEA40B611F0C8F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		262F31C8355FE2A973DDB191 /* Build configuration list for PBXProject "Peekpop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				80A0B1F66BEA40B611F0C8F4 /* Debug */,
+				4F778DAD2580E301750114CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E68B31DF7E69790CB4B64717 /* Build configuration list for PBXNativeTarget "Peekpop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2538EF2D91FB590D420903D6 /* Debug */,
+				34908A567E44253C56C86CB1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		F4C5C3A109E519F7B9CED579 /* Build configuration list for PBXNativeTarget "PeekpopTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7749D8451BBD062761AD6AB1 /* Debug */,
+				270B5F145D73767D777AE230 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 91A85E9550E958819D7AEC01 /* Project object */;
+}
