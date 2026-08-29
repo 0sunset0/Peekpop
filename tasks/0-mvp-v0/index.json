@@ -6,7 +6,7 @@
   "totalPhases": 12,
   "created_at": "2026-08-29T16:45:00+0900",
   "phases": [
-    { "phase": 0, "name": "docs-review", "status": "pending" },
+    { "phase": 0, "name": "docs-review", "status": "completed" },
     { "phase": 1, "name": "xcode-scaffold", "status": "pending" },
     { "phase": 2, "name": "shared-types", "status": "pending" },
     { "phase": 3, "name": "phone-frame-detector", "status": "pending" },
