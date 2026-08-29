@@ -4,7 +4,7 @@ import SwiftUI
 struct PeekpopApp: App {
     var body: some Scene {
         WindowGroup {
-            Text("Peekpop")
+            RootView()
         }
     }
 }

@@ -63,7 +63,8 @@
     {
       "phase": 9,
       "name": "processing-error-root",
-      "status": "pending"
+      "status": "completed",
+      "started_at": "2026-08-29T17:28:33+0900"
     },
     {
       "phase": 10,

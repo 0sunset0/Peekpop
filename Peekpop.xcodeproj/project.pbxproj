@@ -12,6 +12,7 @@
 		1825404B8066AFCDCCB016B7 /* CreationFlowViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C729F71E3302D576A16C7DE /* CreationFlowViewModelTests.swift */; };
 		1C436E74AC2274543776BDCF /* BoundaryConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80FE257381DF40A4D3923B1 /* BoundaryConfirmView.swift */; };
 		242906E60524E06C7636CF1B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 1CA6A5802CCD58A7B0C91491 /* PrivacyInfo.xcprivacy */; };
+		2639D06DB7FE766DC87EA44B /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A84459A2BA1354348D3792 /* RootView.swift */; };
 		40E7614552313C1D46C2C170 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59DC39539F3A374B3C79AB77 /* Assets.xcassets */; };
 		4337E5FC013D0400DCD2D8B8 /* CreationFlowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D089CB17A644411793C80397 /* CreationFlowViewModel.swift */; };
 		47BA8FB25CD93B1877083EC1 /* phone-recording.png in Resources */ = {isa = PBXBuildFile; fileRef = 963F0E2DD7F6B4D09759EEBD /* phone-recording.png */; };
@@ -21,12 +22,14 @@
 		63CB6305E04577C01306EFD9 /* PeekpopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF51204F66CC9191DA531E94 /* PeekpopApp.swift */; };
 		64DCAD6A3A18D10E606C4A5A /* phone-front-facing.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F2C8656E2D70BC2BBAA8E4E /* phone-front-facing.png */; };
 		6FAAE10B5C60E8FE8408077D /* PhoneFrameDetectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC0F829C74E4041DEF54CEA /* PhoneFrameDetectorTests.swift */; };
+		879AD0D3149BDD04C53E4C14 /* ProcessingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E225B20B3E9CA18F8C390E /* ProcessingView.swift */; };
 		A3C488EEBC1ADFB428291412 /* PhoneFrameDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019DA4C1DFB5B980295ABB7C /* PhoneFrameDetector.swift */; };
 		CAB2626DB09191E9558098F1 /* SubjectSegmenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B3A939D1064249BF0CCFD2 /* SubjectSegmenter.swift */; };
 		CEDFCD4BAE5AF5F058E482D1 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFC3213B7CCCD1764749F27 /* MainView.swift */; };
 		D94B23C6C1BA2A1E618D767B /* CameraPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C250DC4DB379361E15B302 /* CameraPicker.swift */; };
 		DCB24C98FC70BC57CA150A1B /* SubjectSegmenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FA3DDF0E31C7E005F4D1C2 /* SubjectSegmenterTests.swift */; };
 		EA479C1966516D18967B11FF /* ScreenQuadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CE532DCABF989802234E4D /* ScreenQuadTests.swift */; };
+		ECE7260A94FB8950DB293166 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AE0C0898AECE032E0DD4D8 /* ErrorView.swift */; };
 		F1CC67B0C6D1CA3CA5D34D51 /* ScreenQuad.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4E7D467193401E59F7433C /* ScreenQuad.swift */; };
 		F9A5D4C932F63E819B546993 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FDEBA9FADB92CFEC4AEEB7 /* Screen.swift */; };
 /* End PBXBuildFile section */
@@ -43,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		019DA4C1DFB5B980295ABB7C /* PhoneFrameDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneFrameDetector.swift; sourceTree = "<group>"; };
+		03E225B20B3E9CA18F8C390E /* ProcessingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingView.swift; sourceTree = "<group>"; };
 		08FDEBA9FADB92CFEC4AEEB7 /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
 		16C250DC4DB379361E15B302 /* CameraPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPicker.swift; sourceTree = "<group>"; };
 		1A6C7418DBDF242E568F1560 /* phone-in-flight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone-in-flight.png"; sourceTree = "<group>"; };
@@ -55,6 +59,7 @@
 		59DC39539F3A374B3C79AB77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		694CF19DC41FFFC42AB3EBFD /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		6FDF550FCD7C2A24A839D77C /* Peekpop.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Peekpop.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		70AE0C0898AECE032E0DD4D8 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		718E5D54581074BFE3565783 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		74B3A939D1064249BF0CCFD2 /* SubjectSegmenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectSegmenter.swift; sourceTree = "<group>"; };
 		7F2C8656E2D70BC2BBAA8E4E /* phone-front-facing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone-front-facing.png"; sourceTree = "<group>"; };
@@ -66,6 +71,7 @@
 		CF51204F66CC9191DA531E94 /* PeekpopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeekpopApp.swift; sourceTree = "<group>"; };
 		D089CB17A644411793C80397 /* CreationFlowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationFlowViewModel.swift; sourceTree = "<group>"; };
 		F258C3042EC2AAA7804CA183 /* PopOutCompositor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOutCompositor.swift; sourceTree = "<group>"; };
+		F6A84459A2BA1354348D3792 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		F8CE532DCABF989802234E4D /* ScreenQuadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenQuadTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,8 +129,11 @@
 			children = (
 				B80FE257381DF40A4D3923B1 /* BoundaryConfirmView.swift */,
 				16C250DC4DB379361E15B302 /* CameraPicker.swift */,
+				70AE0C0898AECE032E0DD4D8 /* ErrorView.swift */,
 				1DFC3213B7CCCD1764749F27 /* MainView.swift */,
 				694CF19DC41FFFC42AB3EBFD /* PhotoPicker.swift */,
+				03E225B20B3E9CA18F8C390E /* ProcessingView.swift */,
+				F6A84459A2BA1354348D3792 /* RootView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -267,11 +276,14 @@
 				1C436E74AC2274543776BDCF /* BoundaryConfirmView.swift in Sources */,
 				D94B23C6C1BA2A1E618D767B /* CameraPicker.swift in Sources */,
 				4337E5FC013D0400DCD2D8B8 /* CreationFlowViewModel.swift in Sources */,
+				ECE7260A94FB8950DB293166 /* ErrorView.swift in Sources */,
 				CEDFCD4BAE5AF5F058E482D1 /* MainView.swift in Sources */,
 				63CB6305E04577C01306EFD9 /* PeekpopApp.swift in Sources */,
 				A3C488EEBC1ADFB428291412 /* PhoneFrameDetector.swift in Sources */,
 				4B353E2A35C64758082B413A /* PhotoPicker.swift in Sources */,
 				61294BF907FF1D2AC5A3437B /* PopOutCompositor.swift in Sources */,
+				879AD0D3149BDD04C53E4C14 /* ProcessingView.swift in Sources */,
+				2639D06DB7FE766DC87EA44B /* RootView.swift in Sources */,
 				F9A5D4C932F63E819B546993 /* Screen.swift in Sources */,
 				F1CC67B0C6D1CA3CA5D34D51 /* ScreenQuad.swift in Sources */,
 				CAB2626DB09191E9558098F1 /* SubjectSegmenter.swift in Sources */,

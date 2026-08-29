@@ -1,0 +1,15 @@
+import SwiftUI
+
+struct ProcessingView: View {
+    var body: some View {
+        ZStack {
+            Color.black.ignoresSafeArea()
+            VStack(spacing: 16) {
+                ProgressView()
+                    .tint(.white)
+                Text("만드는 중...")
+                    .foregroundStyle(.white)
+            }
+        }
+    }
+}
