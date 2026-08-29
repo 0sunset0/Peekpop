@@ -16,6 +16,8 @@
 		64DCAD6A3A18D10E606C4A5A /* phone-front-facing.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F2C8656E2D70BC2BBAA8E4E /* phone-front-facing.png */; };
 		6FAAE10B5C60E8FE8408077D /* PhoneFrameDetectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC0F829C74E4041DEF54CEA /* PhoneFrameDetectorTests.swift */; };
 		A3C488EEBC1ADFB428291412 /* PhoneFrameDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019DA4C1DFB5B980295ABB7C /* PhoneFrameDetector.swift */; };
+		CAB2626DB09191E9558098F1 /* SubjectSegmenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B3A939D1064249BF0CCFD2 /* SubjectSegmenter.swift */; };
+		DCB24C98FC70BC57CA150A1B /* SubjectSegmenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FA3DDF0E31C7E005F4D1C2 /* SubjectSegmenterTests.swift */; };
 		EA479C1966516D18967B11FF /* ScreenQuadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CE532DCABF989802234E4D /* ScreenQuadTests.swift */; };
 		F1CC67B0C6D1CA3CA5D34D51 /* ScreenQuad.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4E7D467193401E59F7433C /* ScreenQuad.swift */; };
 		F9A5D4C932F63E819B546993 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FDEBA9FADB92CFEC4AEEB7 /* Screen.swift */; };
@@ -41,8 +43,10 @@
 		59DC39539F3A374B3C79AB77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6FDF550FCD7C2A24A839D77C /* Peekpop.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Peekpop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		718E5D54581074BFE3565783 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		74B3A939D1064249BF0CCFD2 /* SubjectSegmenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectSegmenter.swift; sourceTree = "<group>"; };
 		7F2C8656E2D70BC2BBAA8E4E /* phone-front-facing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone-front-facing.png"; sourceTree = "<group>"; };
 		963F0E2DD7F6B4D09759EEBD /* phone-recording.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone-recording.png"; sourceTree = "<group>"; };
+		A0FA3DDF0E31C7E005F4D1C2 /* SubjectSegmenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectSegmenterTests.swift; sourceTree = "<group>"; };
 		BE4E7D467193401E59F7433C /* ScreenQuad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenQuad.swift; sourceTree = "<group>"; };
 		BFC0F829C74E4041DEF54CEA /* PhoneFrameDetectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneFrameDetectorTests.swift; sourceTree = "<group>"; };
 		CF51204F66CC9191DA531E94 /* PeekpopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeekpopApp.swift; sourceTree = "<group>"; };
@@ -54,6 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				019DA4C1DFB5B980295ABB7C /* PhoneFrameDetector.swift */,
+				74B3A939D1064249BF0CCFD2 /* SubjectSegmenter.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -63,6 +68,7 @@
 			children = (
 				BFC0F829C74E4041DEF54CEA /* PhoneFrameDetectorTests.swift */,
 				F8CE532DCABF989802234E4D /* ScreenQuadTests.swift */,
+				A0FA3DDF0E31C7E005F4D1C2 /* SubjectSegmenterTests.swift */,
 			);
 			path = PeekpopTests;
 			sourceTree = "<group>";
@@ -222,6 +228,7 @@
 				A3C488EEBC1ADFB428291412 /* PhoneFrameDetector.swift in Sources */,
 				F9A5D4C932F63E819B546993 /* Screen.swift in Sources */,
 				F1CC67B0C6D1CA3CA5D34D51 /* ScreenQuad.swift in Sources */,
+				CAB2626DB09191E9558098F1 /* SubjectSegmenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +238,7 @@
 			files = (
 				6FAAE10B5C60E8FE8408077D /* PhoneFrameDetectorTests.swift in Sources */,
 				EA479C1966516D18967B11FF /* ScreenQuadTests.swift in Sources */,
+				DCB24C98FC70BC57CA150A1B /* SubjectSegmenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
