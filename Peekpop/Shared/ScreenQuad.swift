@@ -7,10 +7,10 @@ struct ScreenQuad: Equatable {
     var bottomRight: CGPoint
     var bottomLeft: CGPoint
 
-    /// 자동 검출이 실패했을 때 쓰는 기본값: 화면 중앙의 세로로 긴(~1:1.6) 사각형.
+    /// 자동 검출이 실패했을 때 쓰는 기본값: 화면 중앙의 세로로 긴(~1:1.3) 사각형.
     static let defaultRect: ScreenQuad = {
         let halfW: CGFloat = 0.25
-        let halfH: CGFloat = 0.4
+        let halfH: CGFloat = 0.33
         let midX: CGFloat = 0.5
         let midY: CGFloat = 0.5
         return ScreenQuad(
