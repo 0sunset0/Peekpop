@@ -14,6 +14,8 @@
 		48E3CE752A82D49355237785 /* phone-tilted-landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D275AB179A972BC49DEEAA0 /* phone-tilted-landscape.png */; };
 		63CB6305E04577C01306EFD9 /* PeekpopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF51204F66CC9191DA531E94 /* PeekpopApp.swift */; };
 		64DCAD6A3A18D10E606C4A5A /* phone-front-facing.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F2C8656E2D70BC2BBAA8E4E /* phone-front-facing.png */; };
+		6FAAE10B5C60E8FE8408077D /* PhoneFrameDetectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC0F829C74E4041DEF54CEA /* PhoneFrameDetectorTests.swift */; };
+		A3C488EEBC1ADFB428291412 /* PhoneFrameDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019DA4C1DFB5B980295ABB7C /* PhoneFrameDetector.swift */; };
 		EA479C1966516D18967B11FF /* ScreenQuadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CE532DCABF989802234E4D /* ScreenQuadTests.swift */; };
 		F1CC67B0C6D1CA3CA5D34D51 /* ScreenQuad.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4E7D467193401E59F7433C /* ScreenQuad.swift */; };
 		F9A5D4C932F63E819B546993 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FDEBA9FADB92CFEC4AEEB7 /* Screen.swift */; };
@@ -30,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		019DA4C1DFB5B980295ABB7C /* PhoneFrameDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneFrameDetector.swift; sourceTree = "<group>"; };
 		08FDEBA9FADB92CFEC4AEEB7 /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
 		1A6C7418DBDF242E568F1560 /* phone-in-flight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone-in-flight.png"; sourceTree = "<group>"; };
 		1CA6A5802CCD58A7B0C91491 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
@@ -41,14 +44,24 @@
 		7F2C8656E2D70BC2BBAA8E4E /* phone-front-facing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone-front-facing.png"; sourceTree = "<group>"; };
 		963F0E2DD7F6B4D09759EEBD /* phone-recording.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone-recording.png"; sourceTree = "<group>"; };
 		BE4E7D467193401E59F7433C /* ScreenQuad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenQuad.swift; sourceTree = "<group>"; };
+		BFC0F829C74E4041DEF54CEA /* PhoneFrameDetectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneFrameDetectorTests.swift; sourceTree = "<group>"; };
 		CF51204F66CC9191DA531E94 /* PeekpopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeekpopApp.swift; sourceTree = "<group>"; };
 		F8CE532DCABF989802234E4D /* ScreenQuadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenQuadTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
+		18041F85952C4112C03246FA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				019DA4C1DFB5B980295ABB7C /* PhoneFrameDetector.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		32F63A418FFB0C00160B5911 /* PeekpopTests */ = {
 			isa = PBXGroup;
 			children = (
+				BFC0F829C74E4041DEF54CEA /* PhoneFrameDetectorTests.swift */,
 				F8CE532DCABF989802234E4D /* ScreenQuadTests.swift */,
 			);
 			path = PeekpopTests;
@@ -61,6 +74,7 @@
 				718E5D54581074BFE3565783 /* Info.plist */,
 				CF51204F66CC9191DA531E94 /* PeekpopApp.swift */,
 				1CA6A5802CCD58A7B0C91491 /* PrivacyInfo.xcprivacy */,
+				18041F85952C4112C03246FA /* Services */,
 				D7A808FAE7F0CAB18B79CC91 /* Shared */,
 			);
 			path = Peekpop;
@@ -205,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63CB6305E04577C01306EFD9 /* PeekpopApp.swift in Sources */,
+				A3C488EEBC1ADFB428291412 /* PhoneFrameDetector.swift in Sources */,
 				F9A5D4C932F63E819B546993 /* Screen.swift in Sources */,
 				F1CC67B0C6D1CA3CA5D34D51 /* ScreenQuad.swift in Sources */,
 			);
@@ -214,6 +229,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FAAE10B5C60E8FE8408077D /* PhoneFrameDetectorTests.swift in Sources */,
 				EA479C1966516D18967B11FF /* ScreenQuadTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -26,7 +26,8 @@
     {
       "phase": 3,
       "name": "phone-frame-detector",
-      "status": "pending"
+      "status": "completed",
+      "started_at": "2026-08-29T17:03:42+0900"
     },
     {
       "phase": 4,
