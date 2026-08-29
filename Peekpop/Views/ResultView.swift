@@ -112,7 +112,9 @@ struct ResultView: View {
             x: committedOffset.x + liveOffsetDelta.width * pixelsPerPoint,
             y: committedOffset.y + liveOffsetDelta.height * pixelsPerPoint
         )
-        let rotation = (committedRotation + liveRotationDelta).radians
+        // Negated: RotationGesture's sign reads backwards against
+        // PopOutCompositor's rotation convention (confirmed on real device).
+        let rotation = -(committedRotation + liveRotationDelta).radians
         viewModel.adjustmentChanged(scale: scale, offset: offset, rotation: rotation)
     }
 
