@@ -127,9 +127,20 @@ struct ResultView: View {
                 .padding()
             }
 
+            // 경계확인 화면의 안내 카드와 같은 스타일(본문 크기 + 표면색 카드) — 이 힌트가
+            // footnote로 너무 작아서 조작 가능하다는 걸 못 알아채는 사용자가 있었다(디자인
+            // 리뷰 반영). 자동 배치가 항상 완벽하진 않은 만큼, 조정 가능하다는 사실 자체의
+            // 발견 가능성이 "보조 힌트"보다 우선한다고 판단해 tier를 올렸다.
             Text("드래그로 위치, 두 손가락으로 크기·회전을 조정할 수 있어요")
-                .font(.footnote)
-                .foregroundStyle(.white.opacity(0.6))
+                .font(.body)
+                .lineSpacing(4)
+                .multilineTextAlignment(.center)
+                .foregroundStyle(.white)
+                .padding(.horizontal, 20)
+                .padding(.vertical, 14)
+                .background(Color.peekpopSurface.opacity(0.85))
+                .clipShape(RoundedRectangle(cornerRadius: 16))
+                .padding(.horizontal, 24)
 
             // 저장이 이 화면의 메인 액션 — 꽉 찬 primary 버튼, 공유는 바로 옆에 붙는 작은
             // 원형 아이콘 버튼(같은 줄, 저장이 남은 공간을 채움). 홈으로 나가는 동작은
