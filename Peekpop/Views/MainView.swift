@@ -26,7 +26,8 @@ struct MainView: View {
                 .frame(maxHeight: 420)
                 .clipShape(RoundedRectangle(cornerRadius: 16))
             Text("폰 카메라 앱을 켜고,\n화면에 인물이 보이게 찍어주세요")
-                .font(.title3.weight(.semibold))
+                .font(.title3.weight(.medium))
+                .lineSpacing(4)
                 .multilineTextAlignment(.center)
                 .foregroundStyle(.white)
             Button("사진 선택하기") {
