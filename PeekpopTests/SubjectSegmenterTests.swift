@@ -17,8 +17,21 @@ final class SubjectSegmenterTests: XCTestCase {
 
     // MARK: - 실사진 축: TestFixtures 4장 전부 plausible(true)로 판정돼야 함
     // (docs/ade.md 스파이크에서 검증된 크롭 좌표 그대로 사용)
+    //
+    // NOTE: VNGenerateForegroundInstanceMaskRequest는 Neural Engine 추론이 필요해서
+    // iOS 시뮬레이터에서 "Could not create inference context"(Vision 에러코드 9)로
+    // 항상 실패한다 (코드 버그 아님 — 동일 크롭을 macOS 호스트에서 직접 돌리면 정상
+    // 동작 확인됨, docs/ade.md 참고). 시뮬레이터에서는 스킵하고, 실기기 검증은
+    // phase 11 실기기 QA에서 수행한다.
 
-    func test_frontFacing_producesPlausibleCutout() async {
+    private func skipIfSimulator() throws {
+        #if targetEnvironment(simulator)
+        throw XCTSkip("VNGenerateForegroundInstanceMaskRequest requires a real device (Neural Engine) — see docs/ade.md")
+        #endif
+    }
+
+    func test_frontFacing_producesPlausibleCutout() async throws {
+        try skipIfSimulator()
         let segmenter = SubjectSegmenter()
         let full = loadFixture("phone-front-facing")
         let cropped = innerPhotoCrop(of: full, x0: 0.238, y0: 0.25, x1: 0.696, y1: 0.65)
@@ -27,7 +40,8 @@ final class SubjectSegmenterTests: XCTestCase {
         XCTAssertTrue(mask.map(segmenter.isPlausible) ?? false)
     }
 
-    func test_tiltedLandscape_producesPlausibleCutout() async {
+    func test_tiltedLandscape_producesPlausibleCutout() async throws {
+        try skipIfSimulator()
         let segmenter = SubjectSegmenter()
         let full = loadFixture("phone-tilted-landscape")
         let cropped = innerPhotoCrop(of: full, x0: 0.291, y0: 0.395, x1: 0.692, y1: 0.86)
@@ -36,7 +50,8 @@ final class SubjectSegmenterTests: XCTestCase {
         XCTAssertTrue(mask.map(segmenter.isPlausible) ?? false)
     }
 
-    func test_recording_producesPlausibleCutout() async {
+    func test_recording_producesPlausibleCutout() async throws {
+        try skipIfSimulator()
         let segmenter = SubjectSegmenter()
         let full = loadFixture("phone-recording")
         let cropped = innerPhotoCrop(of: full, x0: 0.05, y0: 0.02, x1: 0.95, y1: 0.75)
@@ -45,7 +60,8 @@ final class SubjectSegmenterTests: XCTestCase {
         XCTAssertTrue(mask.map(segmenter.isPlausible) ?? false)
     }
 
-    func test_inFlight_producesPlausibleCutout() async {
+    func test_inFlight_producesPlausibleCutout() async throws {
+        try skipIfSimulator()
         let segmenter = SubjectSegmenter()
         let full = loadFixture("phone-in-flight")
         let cropped = innerPhotoCrop(of: full, x0: 0.05, y0: 0.05, x1: 0.95, y1: 0.75)

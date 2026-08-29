@@ -32,6 +32,11 @@ macOS 스파이크 중 `NSImage.cgImage(forProposedRect:)`가 일부 파일에�
 - 앨범에서 사진을 "고르는" 동작(`PHPickerViewController`)은 권한 자체가 불필요.
 - `@AppStorage` 사용으로 Privacy Manifest(`PrivacyInfo.xcprivacy`)에 required-reason API 선언이 필요하다 (사유: "기기 내 앱 자체 데이터 저장 목적" — Xcode 기본 템플릿으로 처리, 추적/분석 목적 아님).
 
+## VNGenerateForegroundInstanceMaskRequest는 iOS 시뮬레이터에서 동작하지 않음
+구현 중(Phase 4) 실사진 유닛 테스트가 iOS 시뮬레이터에서 전부 "Could not create inference context"(Vision 에러코드 9)로 실패했다. 코드 버그가 아니다 — 동일 크롭 좌표를 macOS 호스트(`CGImageSourceCreateImageAtIndex` 직접 디코드)에서 돌리면 4장 전부 정상적으로 마스크가 생성됐고(커버리지 71~96%), 시뮬레이터 재부팅 후에도 동일하게 재현돼 플레이키가 아니다. Neural Engine 추론이 필요한 이 요청 자체가 시뮬레이터 런타임에서 지원되지 않는 것으로 판단된다. → 이 API를 쓰는 유닛 테스트는 `#if targetEnvironment(simulator)`로 감지해 `XCTSkip`으로 건너뛰고, 실제 검증은 실기기에서 한다(phase 11 실기기 QA). `PhoneFrameDetector`(`VNDetectRectanglesRequest`)는 시뮬레이터에서도 정상 동작해 이 제약이 없다 — Neural Engine을 쓰는 요청에만 해당.
+
+참고로 macOS 호스트에서 나온 커버리지(71~96%)가 최초 스파이크 때의 값(25~56%)보다 높게 나왔다 — 크롭 프레이밍 차이일 가능성이 있어 실기기 QA 때 함께 눈으로 확인할 것.
+
 ## 미해결 / 다음 버전 과제
 - "마스크가 그럴싸함" 판정 임계값(커버리지 %, 화면 경계와의 겹침 정도)은 구현 중 튜닝 필요.
 - 컷아웃 배치의 정확한 확대 배율·오프셋 비율도 여러 샘플로 미세 조정 필요.

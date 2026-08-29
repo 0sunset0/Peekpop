@@ -19,7 +19,13 @@ xcodegen generate
 xcodebuild test -project Peekpop.xcodeproj -scheme Peekpop -destination 'platform=iOS Simulator,name=iPhone 17'
 ```
 
-모든 테스트(`ScreenQuadTests` 2, `PhoneFrameDetectorTests` 2, `SubjectSegmenterTests` 7, `PopOutCompositorTests` 3, `CreationFlowViewModelTests` 5 — 합계 19케이스)가 통과해야 한다.
+시뮬레이터에서는 15개 통과 + `SubjectSegmenterTests`의 실사진 4케이스는 스킵(`VNGenerateForegroundInstanceMaskRequest`가 Neural Engine 필요 — docs/ade.md)이 정상이다. 그 4케이스는 실기기 destination으로 다시 돌려서 실제로 통과하는지 확인하라:
+
+```bash
+xcodebuild test -project Peekpop.xcodeproj -scheme Peekpop -destination 'platform=iOS,id=<connected-device-id>' -only-testing:PeekpopTests/SubjectSegmenterTests
+```
+
+(`xcrun xctrace list devices`로 연결된 기기 id 확인). 이때 마스크 커버리지가 macOS 호스트에서 봤던 71~96%인지 원래 스파이크 값 25~56%인지도 눈여겨보고, 크게 벗어나면 크롭 좌표(phase4.md의 x0/y0/x1/y1)를 재검토할 근거로 기록해둬라.
 
 ### 2. 실기기 설치 및 수동 QA 체크리스트
 
