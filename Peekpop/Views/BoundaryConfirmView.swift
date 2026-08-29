@@ -47,7 +47,7 @@ struct BoundaryConfirmView: View {
             // — 안내 카드가 조정 중인 사진 위에 떠 있으면 사진 내용이나 핸들을 가릴 수
             // 있어서, 각자 자기 영역을 갖게 했다(디자인 리뷰 반영).
             Text("노란 점을 움직여서 폰 화면 테두리에 맞춰주세요")
-                .font(.title3.weight(.medium))
+                .font(.body)
                 .lineSpacing(4)
                 .multilineTextAlignment(.center)
                 .foregroundStyle(.white)
