@@ -51,10 +51,9 @@ struct MainView: View {
                 onLibrary: {
                     viewModel.isPickerPresented = false
                     presentLibrary = true
-                },
-                onCancel: { viewModel.isPickerPresented = false }
+                }
             )
-            .presentationDetents([.height(200)])
+            .presentationDetents([.height(160)])
             .presentationDragIndicator(.hidden)
             .presentationBackground(.clear)
         }
@@ -73,36 +72,33 @@ struct MainView: View {
     }
 }
 
-/// iOS 표준 액션시트를 흉내낸 커스텀 하단 시트 — 카메라/앨범 두 옵션 + 취소, 언제나
-/// 화면 하단에 그룹 카드로 뜬다(MainView 상단 주석 참고).
+/// iOS 표준 액션시트를 흉내낸 커스텀 하단 시트 — 카메라/앨범 두 옵션만 두고, 취소는
+/// 별도 버튼 없이 시트 바깥을 탭하거나 아래로 스와이프해서 닫는다(`.sheet` 기본 동작).
 private struct PhotoSourceSheet: View {
     let onCamera: () -> Void
     let onLibrary: () -> Void
-    let onCancel: () -> Void
 
     var body: some View {
-        VStack(spacing: 8) {
-            VStack(spacing: 0) {
-                Button("카메라로 촬영", action: onCamera)
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 16)
-                Divider().background(Color.white.opacity(0.15))
-                Button("앨범에서 선택", action: onLibrary)
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 16)
-            }
-            .background(Color.peekpopSurface)
-            .clipShape(RoundedRectangle(cornerRadius: 14))
-
-            Button("취소", action: onCancel)
-                .font(.body.weight(.semibold))
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 16)
-                .background(Color.peekpopSurface)
-                .clipShape(RoundedRectangle(cornerRadius: 14))
+        VStack(spacing: 0) {
+            sheetRow("카메라로 촬영", action: onCamera)
+            Divider().background(Color.white.opacity(0.15))
+            sheetRow("앨범에서 선택", action: onLibrary)
         }
         .font(.body)
         .foregroundStyle(.white)
+        .background(Color.peekpopSurface)
+        .clipShape(RoundedRectangle(cornerRadius: 14))
         .padding()
+    }
+
+    /// `.contentShape(Rectangle())`가 핵심 — 없으면 텍스트 글자 위에서만 탭이 먹고,
+    /// 나머지 여백(패딩 포함 행 전체)은 탭해도 반응하지 않는다.
+    private func sheetRow(_ title: String, action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            Text(title)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 16)
+                .contentShape(Rectangle())
+        }
     }
 }
