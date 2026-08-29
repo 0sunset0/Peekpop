@@ -1,0 +1,269 @@
+{
+  "version": 1,
+  "jobId": "07c73135-dbc0-459c-9f0b-a4094262af12",
+  "sessionId": "34e7dfe7-199d-462f-81fb-b069412c332d",
+  "scopeKey": "ae08bed256cc25c2ffa2ed112e6f59a31878152e2867f831a62825cb38255d95",
+  "revision": 5,
+  "createdAt": "2026-08-29T08:19:01.491Z",
+  "updatedAt": "2026-08-29T08:19:01.664Z",
+  "producerGraceExpiresAt": "2026-08-29T08:19:31.491Z",
+  "bestEffortDeadlineAt": "2026-08-29T08:20:22.491Z",
+  "producers": {
+    "core": {
+      "state": "sealed",
+      "intentKey": "dd10f300c93328b064229d281e0031bf49f96e5873a0c29aae6691387f05328c",
+      "payloadDigest": "dd10f300c93328b064229d281e0031bf49f96e5873a0c29aae6691387f05328c",
+      "sealedAt": "2026-08-29T08:19:01.664Z",
+      "sealedBy": "foreground"
+    },
+    "wiki": {
+      "state": "no-op",
+      "sealedAt": "2026-08-29T08:19:01.491Z",
+      "sealedBy": "wiki-producer"
+    }
+  },
+  "actions": {
+    "foreground-cleanup": {
+      "class": "required",
+      "phase": "deferred-required",
+      "status": "completed",
+      "attempts": 0,
+      "idempotencyKey": "febf6dba2f2536433960a07f7cedce72e946b43ced0896570df80f017b8914d2",
+      "payload": {
+        "transcriptPath": "/Users/sunset/.claude/projects/-Users-sunset-Desktop---------Peekpop/34e7dfe7-199d-462f-81fb-b069412c332d.jsonl",
+        "cwd": "/Users/sunset/Desktop/노을/프로젝트/Peekpop",
+        "reason": "other",
+        "input": {
+          "session_id": "34e7dfe7-199d-462f-81fb-b069412c332d",
+          "transcript_path": "/Users/sunset/.claude/projects/-Users-sunset-Desktop---------Peekpop/34e7dfe7-199d-462f-81fb-b069412c332d.jsonl",
+          "cwd": "/Users/sunset/Desktop/노을/프로젝트/Peekpop",
+          "prompt_id": "82e994fc-b525-4fa6-8778-39b2fcd84c13",
+          "hook_event_name": "SessionEnd",
+          "reason": "other"
+        },
+        "metrics": {
+          "session_id": "34e7dfe7-199d-462f-81fb-b069412c332d",
+          "ended_at": "2026-08-29T08:19:01.490Z",
+          "reason": "other",
+          "agents_spawned": 0,
+          "agents_completed": 0,
+          "modes_used": []
+        },
+        "initialTeamNames": [],
+        "openClawEnabled": false,
+        "openClawRouting": {},
+        "foregroundResult": {
+          "removedTransientFiles": 1,
+          "completedAt": "2026-08-29T08:19:01.656Z"
+        }
+      },
+      "budgetMs": 9000,
+      "completedAt": "2026-08-29T08:19:01.664Z",
+      "lastOutcomeCode": "completed"
+    },
+    "wiki-capture": {
+      "class": "required",
+      "phase": "deferred-required",
+      "status": "completed",
+      "attempts": 0,
+      "idempotencyKey": "1719cd1ef5b51e0269b78c4cb8c9308c9c1f7b82fd1c067fc034c060f23863f5",
+      "payload": {},
+      "budgetMs": 9000,
+      "completedAt": "2026-08-29T08:19:01.491Z"
+    },
+    "team-cleanup": {
+      "class": "required",
+      "phase": "deferred-required",
+      "status": "pending",
+      "attempts": 0,
+      "idempotencyKey": "cee6ac31df545408e1e822247ac249b3f8182a98a5fe8e448ae3b251e55bdee1",
+      "payload": {
+        "transcriptPath": "/Users/sunset/.claude/projects/-Users-sunset-Desktop---------Peekpop/34e7dfe7-199d-462f-81fb-b069412c332d.jsonl",
+        "cwd": "/Users/sunset/Desktop/노을/프로젝트/Peekpop",
+        "reason": "other",
+        "input": {
+          "session_id": "34e7dfe7-199d-462f-81fb-b069412c332d",
+          "transcript_path": "/Users/sunset/.claude/projects/-Users-sunset-Desktop---------Peekpop/34e7dfe7-199d-462f-81fb-b069412c332d.jsonl",
+          "cwd": "/Users/sunset/Desktop/노을/프로젝트/Peekpop",
+          "prompt_id": "82e994fc-b525-4fa6-8778-39b2fcd84c13",
+          "hook_event_name": "SessionEnd",
+          "reason": "other"
+        },
+        "metrics": {
+          "session_id": "34e7dfe7-199d-462f-81fb-b069412c332d",
+          "ended_at": "2026-08-29T08:19:01.490Z",
+          "reason": "other",
+          "agents_spawned": 0,
+          "agents_completed": 0,
+          "modes_used": []
+        },
+        "initialTeamNames": [],
+        "openClawEnabled": false,
+        "openClawRouting": {}
+      },
+      "budgetMs": 9000
+    },
+    "python-cleanup": {
+      "class": "required",
+      "phase": "deferred-required",
+      "status": "pending",
+      "attempts": 0,
+      "idempotencyKey": "1f1370c4ac056606059d517e2f106b602d8cbcb04587b3fcc5f3b9f89e649cd0",
+      "payload": {
+        "transcriptPath": "/Users/sunset/.claude/projects/-Users-sunset-Desktop---------Peekpop/34e7dfe7-199d-462f-81fb-b069412c332d.jsonl",
+        "cwd": "/Users/sunset/Desktop/노을/프로젝트/Peekpop",
+        "reason": "other",
+        "input": {
+          "session_id": "34e7dfe7-199d-462f-81fb-b069412c332d",
+          "transcript_path": "/Users/sunset/.claude/projects/-Users-sunset-Desktop---------Peekpop/34e7dfe7-199d-462f-81fb-b069412c332d.jsonl",
+          "cwd": "/Users/sunset/Desktop/노을/프로젝트/Peekpop",
+          "prompt_id": "82e994fc-b525-4fa6-8778-39b2fcd84c13",
+          "hook_event_name": "SessionEnd",
+          "reason": "other"
+        },
+        "metrics": {
+          "session_id": "34e7dfe7-199d-462f-81fb-b069412c332d",
+          "ended_at": "2026-08-29T08:19:01.490Z",
+          "reason": "other",
+          "agents_spawned": 0,
+          "agents_completed": 0,
+          "modes_used": []
+        },
+        "initialTeamNames": [],
+        "openClawEnabled": false,
+        "openClawRouting": {}
+      },
+      "budgetMs": 9000
+    },
+    "reply-cleanup": {
+      "class": "required",
+      "phase": "deferred-required",
+      "status": "pending",
+      "attempts": 0,
+      "idempotencyKey": "0b3a8b47c28b26d56aca004d4f572b96c118f16819c0d35162418816f9a5420a",
+      "payload": {
+        "transcriptPath": "/Users/sunset/.claude/projects/-Users-sunset-Desktop---------Peekpop/34e7dfe7-199d-462f-81fb-b069412c332d.jsonl",
+        "cwd": "/Users/sunset/Desktop/노을/프로젝트/Peekpop",
+        "reason": "other",
+        "input": {
+          "session_id": "34e7dfe7-199d-462f-81fb-b069412c332d",
+          "transcript_path": "/Users/sunset/.claude/projects/-Users-sunset-Desktop---------Peekpop/34e7dfe7-199d-462f-81fb-b069412c332d.jsonl",
+          "cwd": "/Users/sunset/Desktop/노을/프로젝트/Peekpop",
+          "prompt_id": "82e994fc-b525-4fa6-8778-39b2fcd84c13",
+          "hook_event_name": "SessionEnd",
+          "reason": "other"
+        },
+        "metrics": {
+          "session_id": "34e7dfe7-199d-462f-81fb-b069412c332d",
+          "ended_at": "2026-08-29T08:19:01.490Z",
+          "reason": "other",
+          "agents_spawned": 0,
+          "agents_completed": 0,
+          "modes_used": []
+        },
+        "initialTeamNames": [],
+        "openClawEnabled": false,
+        "openClawRouting": {}
+      },
+      "budgetMs": 9000
+    },
+    "callback": {
+      "class": "best-effort",
+      "phase": "deferred-best-effort",
+      "status": "pending",
+      "attempts": 0,
+      "idempotencyKey": "d068ede2655bf89e0c0950e087d0603d7dcf45538e94f20a654d08c6f4841895",
+      "payload": {
+        "transcriptPath": "/Users/sunset/.claude/projects/-Users-sunset-Desktop---------Peekpop/34e7dfe7-199d-462f-81fb-b069412c332d.jsonl",
+        "cwd": "/Users/sunset/Desktop/노을/프로젝트/Peekpop",
+        "reason": "other",
+        "input": {
+          "session_id": "34e7dfe7-199d-462f-81fb-b069412c332d",
+          "transcript_path": "/Users/sunset/.claude/projects/-Users-sunset-Desktop---------Peekpop/34e7dfe7-199d-462f-81fb-b069412c332d.jsonl",
+          "cwd": "/Users/sunset/Desktop/노을/프로젝트/Peekpop",
+          "prompt_id": "82e994fc-b525-4fa6-8778-39b2fcd84c13",
+          "hook_event_name": "SessionEnd",
+          "reason": "other"
+        },
+        "metrics": {
+          "session_id": "34e7dfe7-199d-462f-81fb-b069412c332d",
+          "ended_at": "2026-08-29T08:19:01.490Z",
+          "reason": "other",
+          "agents_spawned": 0,
+          "agents_completed": 0,
+          "modes_used": []
+        },
+        "initialTeamNames": [],
+        "openClawEnabled": false,
+        "openClawRouting": {}
+      },
+      "budgetMs": 2000
+    },
+    "notification": {
+      "class": "best-effort",
+      "phase": "deferred-best-effort",
+      "status": "pending",
+      "attempts": 0,
+      "idempotencyKey": "89c0438ff63097ce04beb60efb87292ff68a7af350a0ee331f3de9dbf42d62fc",
+      "payload": {
+        "transcriptPath": "/Users/sunset/.claude/projects/-Users-sunset-Desktop---------Peekpop/34e7dfe7-199d-462f-81fb-b069412c332d.jsonl",
+        "cwd": "/Users/sunset/Desktop/노을/프로젝트/Peekpop",
+        "reason": "other",
+        "input": {
+          "session_id": "34e7dfe7-199d-462f-81fb-b069412c332d",
+          "transcript_path": "/Users/sunset/.claude/projects/-Users-sunset-Desktop---------Peekpop/34e7dfe7-199d-462f-81fb-b069412c332d.jsonl",
+          "cwd": "/Users/sunset/Desktop/노을/프로젝트/Peekpop",
+          "prompt_id": "82e994fc-b525-4fa6-8778-39b2fcd84c13",
+          "hook_event_name": "SessionEnd",
+          "reason": "other"
+        },
+        "metrics": {
+          "session_id": "34e7dfe7-199d-462f-81fb-b069412c332d",
+          "ended_at": "2026-08-29T08:19:01.490Z",
+          "reason": "other",
+          "agents_spawned": 0,
+          "agents_completed": 0,
+          "modes_used": []
+        },
+        "initialTeamNames": [],
+        "openClawEnabled": false,
+        "openClawRouting": {}
+      },
+      "budgetMs": 2000
+    },
+    "openclaw": {
+      "class": "best-effort",
+      "phase": "deferred-best-effort",
+      "status": "pending",
+      "attempts": 0,
+      "idempotencyKey": "31fe8f6e1cf204e27006de511df257326fdd98655122ca437013e8779ffc735b",
+      "payload": {
+        "transcriptPath": "/Users/sunset/.claude/projects/-Users-sunset-Desktop---------Peekpop/34e7dfe7-199d-462f-81fb-b069412c332d.jsonl",
+        "cwd": "/Users/sunset/Desktop/노을/프로젝트/Peekpop",
+        "reason": "other",
+        "input": {
+          "session_id": "34e7dfe7-199d-462f-81fb-b069412c332d",
+          "transcript_path": "/Users/sunset/.claude/projects/-Users-sunset-Desktop---------Peekpop/34e7dfe7-199d-462f-81fb-b069412c332d.jsonl",
+          "cwd": "/Users/sunset/Desktop/노을/프로젝트/Peekpop",
+          "prompt_id": "82e994fc-b525-4fa6-8778-39b2fcd84c13",
+          "hook_event_name": "SessionEnd",
+          "reason": "other"
+        },
+        "metrics": {
+          "session_id": "34e7dfe7-199d-462f-81fb-b069412c332d",
+          "ended_at": "2026-08-29T08:19:01.490Z",
+          "reason": "other",
+          "agents_spawned": 0,
+          "agents_completed": 0,
+          "modes_used": []
+        },
+        "initialTeamNames": [],
+        "openClawEnabled": false,
+        "openClawRouting": {}
+      },
+      "budgetMs": 2000
+    }
+  },
+  "owner": null,
+  "phase": "recoverable-failure"
+}
