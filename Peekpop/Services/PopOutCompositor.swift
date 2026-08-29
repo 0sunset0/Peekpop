@@ -4,8 +4,17 @@ import CoreGraphics
 /// 만든다. 배치는 사용자가 지정한 사각형의 기울기를 반영한다 — 고정 비율 배치는 폰이
 /// 기울어진 사진에서 부자연스러웠다 (docs/ade.md).
 struct PopOutCompositor {
-    private let popOutScale: CGFloat = 1.3
-    private let insideFraction: CGFloat = 0.42
+    /// How much larger than life-size the cutout is drawn. 1.3 read as barely
+    /// bigger than the original screen content — bumped up so the subject
+    /// reads as clearly oversized, per real-device QA feedback.
+    private let popOutScale: CGFloat = 1.6
+    /// Fraction of the enlarged cutout's height that extends BELOW the quad's
+    /// bottom edge — i.e. past the phone, into the "real world" part of the
+    /// photo. The rest anchors back up over the screen for visual continuity.
+    /// Previously named `insideFraction` and set to 0.42, which (given the
+    /// rect math below) actually put 58% of the subject back over the screen
+    /// and only 42% past the edge — the opposite of a "breaking out" look.
+    private let belowEdgeFraction: CGFloat = 0.65
 
     /// 사각형 아래쪽 변(bottomLeft→bottomRight)의 기울기를 라디안으로 반환한다.
     /// 순수 함수 — 이미지 좌표계(원점 좌상단, y 아래로 증가)를 그대로 쓴다.
@@ -34,7 +43,7 @@ struct PopOutCompositor {
         ctx.setShadow(offset: CGSize(width: 0, height: -14), blur: 24, color: CGColor(red: 0, green: 0, blue: 0, alpha: 0.5))
         ctx.translateBy(x: bottomMid.x, y: CGFloat(outH) - bottomMid.y)
         ctx.rotate(by: -angle)
-        let drawRect = CGRect(x: -cutoutW / 2, y: -(cutoutH * insideFraction), width: cutoutW, height: cutoutH)
+        let drawRect = CGRect(x: -cutoutW / 2, y: -(cutoutH * belowEdgeFraction), width: cutoutW, height: cutoutH)
         ctx.draw(cutout, in: drawRect)
         ctx.restoreGState()
 
