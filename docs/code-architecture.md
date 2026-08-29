@@ -12,6 +12,9 @@ Flow/      CreationFlowViewModel — 단일 ObservableObject. 흐름 전체 상�
 Services/  PhoneFrameDetector, SubjectSegmenter, PopOutCompositor — Vision/CoreGraphics
            래퍼. 프로토콜 추상화·DI 없이 concrete 타입 (테스트도 실제 이미지로 돌리므로
            Vision을 mock할 이유가 없음).
+Shared/    ScreenQuad, Screen, AppColor(색상 토큰) 외에 `ImageLayout` — `.scaledToFit()`의
+           레터박싱을 계산하는 순수 함수. BoundaryConfirmView(사각형 오버레이 좌표)와
+           ResultView(제스처 픽셀 변환)가 공유한다.
 ```
 
 ## 화면 상태
@@ -22,7 +25,7 @@ enum Screen {
 }
 ```
 
-v0는 온보딩 캐러셀과 브러시 보정 화면이 없다(tech-critic-lead 게이트, `docs/prd.md` 참고). `generating`/`compositing` 두 로딩 상태도 `processing` 하나로 합친다 — 사용자에게는 어차피 같은 스피너로 보이고, 중간에 melt-in할 별도 화면이 없다.
+v0는 (별도 화면 시퀀스인) 온보딩 캐러셀과 브러시 보정 화면이 없다(tech-critic-lead 게이트, `docs/prd.md` 참고) — 메인 화면 안의 3페이지 예시 캐러셀(`MainView`)은 화면 전환이 아니라 한 화면 안의 콘텐츠라 이 결정과 무관하다. `generating`/`compositing` 두 로딩 상태도 `processing` 하나로 합친다 — 사용자에게는 어차피 같은 스피너로 보이고, 중간에 melt-in할 별도 화면이 없다.
 
 `CreationFlowViewModel`이 들고, 루트 뷰가 switch로 화면을 바꾼다. `NavigationStack` 미사용 — "홈으로"/"다시 시도"처럼 스택을 여러 단계 건너뛰는 이동이 있어, push/pop보다 단일 상태값 전환이 더 간결하다.
 
@@ -46,7 +49,7 @@ Vision 호출(`VNImageRequestHandler.perform`, 동기 API)은 `Task { }` 안에�
 
 두 경우 모두 `CreationFlowViewModel`이 `Screen.error(message)`로 전환하고, 같은 에러 화면("다시 시도" 버튼 하나로 사진 선택 화면 복귀)을 재사용한다.
 
-`retryFromError()`(에러→피커 자동 표시), `startOver()`(경계확인 뒤로가기 `<`→피커 자동 표시)와 `goHome()`(결과 화면 우측 상단 X 버튼→메인에 머무름, 피커 자동 표시 안 함)은 서로 다른 함수다 — 이름이 비슷해 보이지만 뒤로가기·재시도는 "바로 사진 선택으로", X는 "메인 화면에서 잠깐 멈춤"으로 의도적으로 다르게 동작한다(디자인 리뷰 반영).
+`retryFromError()`(에러→피커 자동 표시), `startOver()`(경계확인 화면 좌상단 `<`→피커 자동 표시), `goHome()`(결과 화면 우상단 X→메인에 머무름, 피커 자동 표시 안 함), `backToBoundaryConfirm()`(결과 화면 좌상단 `<`→경계확인 화면, `selectedImage`는 유지)은 전부 다른 함수다 — 이름이 비슷해 보이지만 목적이 다르다: 뒤로가기(경계확인)·재시도는 "사진도 다시 고르기", X는 "메인 화면에서 잠깐 멈춤", 결과 화면의 뒤로가기는 "같은 사진으로 사각형만 다시 맞추기"(디자인 리뷰 반영).
 
 1. Vision 단계에서 실제 예외(인식 실패가 아닌 진짜 오류)가 발생했을 때.
 2. `SubjectSegmenter`가 마스크는 만들었지만 결과가 degenerate(커버리지가 `plausibleCoverageRange` 밖 — 거의 비어있거나 거의 전체를 덮음)할 때. v0엔 브러시로 고쳐 쓰는 UI가 없으므로, 애매한 경우도 전부 재시도로 보낸다(다음 버전의 브러시 보정 화면이 이 경로를 대체할 예정).

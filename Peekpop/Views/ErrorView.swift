@@ -9,7 +9,8 @@ struct ErrorView: View {
             Color.black.ignoresSafeArea()
             VStack(spacing: 16) {
                 Text(message)
-                    .font(.title3.weight(.semibold))
+                    .font(.body)
+                    .lineSpacing(4)
                     .foregroundStyle(.white)
                     .multilineTextAlignment(.center)
 

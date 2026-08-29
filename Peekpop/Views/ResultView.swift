@@ -24,6 +24,18 @@ struct ResultView: View {
             content
             VStack {
                 HStack {
+                    Button {
+                        viewModel.backToBoundaryConfirm()
+                    } label: {
+                        Image(systemName: "chevron.left")
+                            .font(.system(size: 18, weight: .semibold))
+                            .foregroundStyle(.white)
+                            .frame(width: 36, height: 36)
+                            .background(Color.peekpopSurface.opacity(0.6))
+                            .clipShape(Circle())
+                    }
+                    .padding()
+
                     Spacer()
                     Button {
                         viewModel.goHome()
@@ -162,18 +174,7 @@ struct ResultView: View {
 
     /// `.scaledToFit()`이 `imageSize`를 `containerSize` 안에 어떤 크기로 그리는지 계산한다.
     private static func displayedSize(containerSize: CGSize, imageSize: CGSize) -> CGSize {
-        guard imageSize.width > 0, imageSize.height > 0, containerSize.width > 0, containerSize.height > 0 else {
-            return containerSize
-        }
-        let containerAspect = containerSize.width / containerSize.height
-        let imageAspect = imageSize.width / imageSize.height
-        if imageAspect > containerAspect {
-            let w = containerSize.width
-            return CGSize(width: w, height: w / imageAspect)
-        } else {
-            let h = containerSize.height
-            return CGSize(width: h * imageAspect, height: h)
-        }
+        ImageLayout.displayedRect(containerSize: containerSize, imageSize: imageSize).size
     }
 
     private func prepareShareURL() {
