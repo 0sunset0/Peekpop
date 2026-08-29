@@ -75,7 +75,10 @@
     {
       "phase": 11,
       "name": "device-qa",
-      "status": "pending"
+      "status": "error",
+      "started_at": "2026-08-29T17:30:29+0900",
+      "failed_at": "2026-08-29T17:32:22+0900",
+      "error_message": "phase session ended without updating status"
     }
   ]
 }
