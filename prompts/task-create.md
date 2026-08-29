@@ -200,7 +200,7 @@ python3 scripts/run-phases.py 0-mvp
 
 ### scripts/run-phases.py 자동 동작
 
-- `feat-{task-name}` 브랜치를 자동 생성/체크아웃 (이미 존재하면 resume)
+- 별도 브랜치를 만들지 않는다. `main` 브랜치에서 직접 작업하고 직접 커밋한다 (plan-and-build 스킬의 "신규 브랜치를 만들지 않는다" 원칙과 일치시킴).
 - 각 phase 완료 후 2단계 커밋:
   1. **Claude fallback 커밋**: `feat({task-name}): phase {N} — {phase-name}` — Claude가 직접 커밋하지 않은 코드 변경이 있을 때만 수행
   2. **Runner housekeeping 커밋**: `chore({task-name}): phase {N} output + timestamps` — phase-output.json 저장 및 index.json timestamp 업데이트를 별도 커밋
