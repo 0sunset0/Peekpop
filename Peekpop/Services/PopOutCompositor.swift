@@ -4,10 +4,14 @@ import CoreGraphics
 /// 만든다. 배치는 사용자가 지정한 사각형의 기울기를 반영한다 — 고정 비율 배치는 폰이
 /// 기울어진 사진에서 부자연스러웠다 (docs/ade.md).
 struct PopOutCompositor {
-    /// How much larger than life-size the cutout is drawn. 1.3 read as barely
-    /// bigger than the original screen content — bumped up so the subject
-    /// reads as clearly oversized, per real-device QA feedback.
-    private let popOutScale: CGFloat = 1.6
+    /// The rendered subject's width, as a multiple of the phone-screen quad's
+    /// OWN width — not a multiplier of the cutout's raw pixel width. A fixed
+    /// pixel-based multiplier (the old `popOutScale = 1.6`) looked inconsistent
+    /// across photos because the segmentation crop's pixel size varies with
+    /// photo resolution and how tightly Vision cropped the subject; scaling
+    /// relative to the quad keeps the subject's size visually consistent
+    /// relative to the phone itself (docs/ade.md).
+    private let targetWidthRatio: CGFloat = 1.15
     /// Fraction of the enlarged cutout's height that extends BELOW the quad's
     /// bottom edge — i.e. past the phone, into the "real world" part of the
     /// photo. The rest anchors back up over the screen for visual continuity.
@@ -36,8 +40,11 @@ struct PopOutCompositor {
         let angle = Self.rotationAngle(bottomLeft: bottomLeftPx, bottomRight: bottomRightPx)
         let bottomMid = CGPoint(x: (bottomLeftPx.x + bottomRightPx.x) / 2, y: (bottomLeftPx.y + bottomRightPx.y) / 2)
 
-        let cutoutW = CGFloat(cutout.width) * popOutScale
-        let cutoutH = CGFloat(cutout.height) * popOutScale
+        let quadWidth = hypot(bottomRightPx.x - bottomLeftPx.x, bottomRightPx.y - bottomLeftPx.y)
+        let targetWidth = quadWidth * targetWidthRatio
+        let scale = cutout.width > 0 ? targetWidth / CGFloat(cutout.width) : 1
+        let cutoutW = CGFloat(cutout.width) * scale
+        let cutoutH = CGFloat(cutout.height) * scale
 
         ctx.saveGState()
         ctx.setShadow(offset: CGSize(width: 0, height: -14), blur: 24, color: CGColor(red: 0, green: 0, blue: 0, alpha: 0.5))
