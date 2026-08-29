@@ -9,3 +9,6 @@ DerivedData/
 
 # macOS
 .DS_Store
+
+# Local tooling/session state (not part of the app, changes on every run)
+.omc/

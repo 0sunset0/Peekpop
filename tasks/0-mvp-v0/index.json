@@ -6,17 +6,79 @@
   "totalPhases": 12,
   "created_at": "2026-08-29T16:45:00+0900",
   "phases": [
-    { "phase": 0, "name": "docs-review", "status": "pending" },
-    { "phase": 1, "name": "xcode-scaffold", "status": "pending" },
-    { "phase": 2, "name": "shared-types", "status": "pending" },
-    { "phase": 3, "name": "phone-frame-detector", "status": "pending" },
-    { "phase": 4, "name": "subject-segmenter", "status": "pending" },
-    { "phase": 5, "name": "pop-out-compositor", "status": "pending" },
-    { "phase": 6, "name": "creation-flow-viewmodel", "status": "pending" },
-    { "phase": 7, "name": "main-view-picker", "status": "pending" },
-    { "phase": 8, "name": "boundary-confirm-view", "status": "pending" },
-    { "phase": 9, "name": "processing-error-root", "status": "pending" },
-    { "phase": 10, "name": "result-view", "status": "pending" },
-    { "phase": 11, "name": "device-qa", "status": "pending" }
+    {
+      "phase": 0,
+      "name": "docs-review",
+      "status": "completed"
+    },
+    {
+      "phase": 1,
+      "name": "xcode-scaffold",
+      "status": "completed",
+      "started_at": "2026-08-29T16:59:28+0900"
+    },
+    {
+      "phase": 2,
+      "name": "shared-types",
+      "status": "completed",
+      "started_at": "2026-08-29T17:02:40+0900"
+    },
+    {
+      "phase": 3,
+      "name": "phone-frame-detector",
+      "status": "completed",
+      "started_at": "2026-08-29T17:03:42+0900"
+    },
+    {
+      "phase": 4,
+      "name": "subject-segmenter",
+      "status": "completed",
+      "started_at": "2026-08-29T17:06:15+0900",
+      "note": "실사진 4케이스는 iOS 시뮬레이터에서 VNGenerateForegroundInstanceMaskRequest가 Neural Engine 추론 컨텍스트를 만들지 못해 항상 실패(코드 버그 아님, macOS 호스트 재현 검증됨 — docs/ade.md 참고). 사용자 결정(옵션 2)에 따라 XCTSkip으로 시뮬레이터에서 스킵 처리하고, 실기기 검증은 phase 11로 이관. 경계값 3케이스는 시뮬레이터에서 정상 통과."
+    },
+    {
+      "phase": 5,
+      "name": "pop-out-compositor",
+      "status": "completed",
+      "started_at": "2026-08-29T17:17:36+0900"
+    },
+    {
+      "phase": 6,
+      "name": "creation-flow-viewmodel",
+      "status": "completed",
+      "started_at": "2026-08-29T17:20:12+0900"
+    },
+    {
+      "phase": 7,
+      "name": "main-view-picker",
+      "status": "completed",
+      "started_at": "2026-08-29T17:26:38+0900"
+    },
+    {
+      "phase": 8,
+      "name": "boundary-confirm-view",
+      "status": "completed",
+      "started_at": "2026-08-29T17:27:45+0900"
+    },
+    {
+      "phase": 9,
+      "name": "processing-error-root",
+      "status": "completed",
+      "started_at": "2026-08-29T17:28:33+0900"
+    },
+    {
+      "phase": 10,
+      "name": "result-view",
+      "status": "completed",
+      "started_at": "2026-08-29T17:29:45+0900"
+    },
+    {
+      "phase": 11,
+      "name": "device-qa",
+      "status": "error",
+      "started_at": "2026-08-29T17:30:29+0900",
+      "failed_at": "2026-08-29T17:32:22+0900",
+      "error_message": "phase session ended without updating status"
+    }
   ]
 }

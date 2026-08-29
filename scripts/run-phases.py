@@ -18,7 +18,10 @@ TASKS_DIR = ROOT / "tasks"
 COMMIT_MSG_TEMPLATE = "feat({task_name}): phase {phase} — {phase_name}"
 RUNNER_COMMIT_MSG_TEMPLATE = "chore({task_name}): phase {phase} output + timestamps"
 
-PREAMBLE_TEMPLATE = """당신은 {project}} 프로젝트의 개발자입니다. 아래 phase의 작업을 수행하세요.
+def build_preamble(project: str, task_dir: str, task_name: str, phase_num: int, phase_name: str) -> str:
+    # f-string, not str.format() — the commit-message line below intentionally
+    # contains braces that must NOT be treated as format placeholders.
+    return f"""당신은 {project} 프로젝트의 개발자입니다. 아래 phase의 작업을 수행하세요.
 
 중요한 규칙:
 1. 작업 전에 반드시 문서를 읽고 전체 설계를 이해하세요.
@@ -27,10 +30,10 @@ PREAMBLE_TEMPLATE = """당신은 {project}} 프로젝트의 개발자입니다. 
 4. 불필요한 파일이나 코드를 추가하지 마세요. phase에 명시된 것만 작업하세요.
 5. 기존 테스트를 깨뜨리지 마세요.
 6. AC 통과 후, index.json 업데이트까지 완료했다면, 모든 변경사항을 아래 형식으로 커밋하세요:
-   feat({task_name}): phase {phase} — {phase_name}
+   feat({task_name}): phase {phase_num} — {phase_name}
 
 아래는 이번 phase의 상세 내용입니다:
-""".replace("{project}}", "{project}")
+"""
 
 
 def now_iso() -> str:
@@ -49,9 +52,20 @@ def git(*args, check=True):
     return subprocess.run(["git", *args], cwd=ROOT, check=check, capture_output=True, text=True)
 
 
-def has_uncommitted_changes() -> bool:
-    result = git("status", "--porcelain")
-    return bool(result.stdout.strip())
+def has_staged_changes() -> bool:
+    # `git diff --cached --quiet` exits 1 if the index differs from HEAD, 0 if not.
+    # This is what actually determines whether `git commit` (no -a, no pathspec) has
+    # anything to do — checking `git status --porcelain` (whole working tree) instead
+    # can be non-empty for unrelated reasons (e.g. xcodegen regenerating the .xcodeproj
+    # with new UUIDs) even when nothing is staged, causing `git commit` to fail with
+    # "nothing added to commit" (exit 1) and crash the runner.
+    result = git("diff", "--cached", "--quiet", check=False)
+    return result.returncode != 0
+
+
+def commit_if_staged(message: str) -> None:
+    if has_staged_changes():
+        git("commit", "-m", message)
 
 
 def spinner_line(current: int, total: int, elapsed: float, label: str) -> None:
@@ -65,10 +79,12 @@ def run_phase(task_dir: str, task_index_path: Path, task_index: dict, phase_entr
     phase_file = TASKS_DIR / task_dir / f"phase{phase_num}.md"
     phase_content = phase_file.read_text()
 
-    preamble = PREAMBLE_TEMPLATE.format(
+    preamble = build_preamble(
         project=task_index.get("project", "Peekpop"),
         task_dir=task_dir,
-        phase=phase_num,
+        task_name=task_index["task"],
+        phase_num=phase_num,
+        phase_name=phase_name,
     )
     prompt = preamble + "\n" + phase_content
 
@@ -110,25 +126,23 @@ def run_phase(task_dir: str, task_index_path: Path, task_index: dict, phase_entr
         print(f"\nphase {phase_num} ({phase_name}) did not update its own status — marked error")
 
     # Claude fallback commit, only if there are changes the phase session didn't commit itself.
-    if has_uncommitted_changes():
-        git("add", "-A")
-        msg = COMMIT_MSG_TEMPLATE.format(task_name=task_index["task"], phase=phase_num, phase_name=phase_name)
-        git("commit", "-m", msg)
+    git("add", "-A")
+    msg = COMMIT_MSG_TEMPLATE.format(task_name=task_index["task"], phase=phase_num, phase_name=phase_name)
+    commit_if_staged(msg)
 
     # Runner housekeeping commit: phase-output.json + timestamp updates.
     git("add", str(output_path.relative_to(ROOT)), str(task_index_path.relative_to(ROOT)))
-    if has_uncommitted_changes():
-        msg = RUNNER_COMMIT_MSG_TEMPLATE.format(task_name=task_index["task"], phase=phase_num)
-        git("commit", "-m", msg)
+    msg = RUNNER_COMMIT_MSG_TEMPLATE.format(task_name=task_index["task"], phase=phase_num)
+    commit_if_staged(msg)
 
     if phase_num == 0 and status == "completed":
         gen_docs_diff = ROOT / "scripts" / "gen-docs-diff.py"
         if gen_docs_diff.exists():
             subprocess.run([sys.executable, str(gen_docs_diff), task_dir], cwd=ROOT, check=False)
             diff_path = TASKS_DIR / task_dir / "docs-diff.md"
-            if diff_path.exists() and has_uncommitted_changes():
+            if diff_path.exists():
                 git("add", str(diff_path.relative_to(ROOT)))
-                git("commit", "-m", f"chore({task_index['task']}): add docs-diff.md")
+                commit_if_staged(f"chore({task_index['task']}): add docs-diff.md")
 
     return status
 
@@ -191,9 +205,8 @@ def main() -> None:
                 t["status"] = "completed"
                 t["completed_at"] = now_iso()
         save_json(top_index_path, top_index)
-        if has_uncommitted_changes():
-            git("add", str(top_index_path.relative_to(ROOT)))
-            git("commit", "-m", f"chore: mark task {task_dir} completed")
+        git("add", str(top_index_path.relative_to(ROOT)))
+        commit_if_staged(f"chore: mark task {task_dir} completed")
 
 
 if __name__ == "__main__":
