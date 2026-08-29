@@ -20,13 +20,13 @@ struct MainView: View {
 
     /// 사용 흐름을 3단계로 미리 보여주는 예시 캐러셀. ①어떤 사진을 찍어야 하는지
     /// ②노란 점을 어디에 맞춰야 하는지 ③어떤 결과가 나오는지(디자인 리뷰, 2026-08-30 —
-    /// docs/flow.md "1. 메인" 참고). 2·3페이지 캡션은 실제로 그 화면에 도달했을 때 보게 될
-    /// 문구(경계확인 안내 문구, 결과 화면 조작 힌트)를 그대로 재사용한다 — 미리 보여준
-    /// 조작 힌트가 실제 화면에서도 낯설지 않도록.
+    /// docs/flow.md "1. 메인" 참고). 2·3페이지 이미지는 실제 서비스 코드
+    /// (PhoneFrameDetector/SubjectSegmenter/PopOutCompositor)로 TestFixtures 샘플
+    /// 사진을 처리해서 만든 실물 결과다, 손으로 그린 목업이 아니다.
     private let carouselPages: [(image: String, caption: String)] = [
         ("phone-front-facing", "폰 카메라 앱을 켜고,\n화면에 인물이 보이게 찍어주세요"),
         ("carousel-boundary-example", "노란 점을 움직여서\n폰 화면 테두리에 맞춰주세요"),
-        ("carousel-result-example", "이렇게 화면 밖으로 튀어나온 것처럼 나와요\n드래그로 위치를 직접 조정할 수 있어요")
+        ("carousel-result-example", "이렇게 화면 밖으로\n튀어나온 것처럼 나와요")
     ]
 
     var body: some View {
