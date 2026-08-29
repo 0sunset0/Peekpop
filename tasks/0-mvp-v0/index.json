@@ -20,7 +20,8 @@
     {
       "phase": 2,
       "name": "shared-types",
-      "status": "pending"
+      "status": "completed",
+      "started_at": "2026-08-29T17:02:40+0900"
     },
     {
       "phase": 3,
