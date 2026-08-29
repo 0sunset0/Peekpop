@@ -44,6 +44,10 @@
 
 이번 요청은 "문서에 반영해줘"까지만 — 코드 구현(SwiftUI `TabView` 캐러셀, 이미지 에셋 생성 등)은 아직 안 함. 다음에 구현 요청이 오면 이 문서들을 스펙으로 진행하면 된다.
 
+**구현 완료 (2026-08-30)**: 위 설계대로 `MainView`를 `TabView(.page 스타일) + 페이지 인디케이터`로 구현했다. 2·3페이지 이미지는 예상대로 손으로 만들 필요가 없었다 — 서비스 코드(`PhoneFrameDetector`/`SubjectSegmenter`/`PopOutCompositor`)를 그대로 재사용하는 macOS용 커맨드라인 스크립트(SPM 실행 파일, 이 리포에는 안 남김 — 일회성 스크래치 도구)를 짜서 `TestFixtures/phone-front-facing.png`를 실제로 처리했다: Vision `VNGenerateForegroundInstanceMaskRequest`는 iOS 시뮬레이터에선 못 돌리지만(phase 4 발견 사항, 위 참고) macOS 앱/도구에서는 Neural Engine을 그대로 쓸 수 있어서 실제 세그멘테이션·합성 결과를 바로 얻을 수 있었다. 2페이지는 `PhoneFrameDetector`가 자동 검출한 사각형을 노란 오버레이로 그린 것, 3페이지는 그 사각형으로 실제 크롭→세그멘테이션→합성까지 돌린 진짜 결과물이다. `Assets.xcassets/carousel-boundary-example`, `carousel-result-example`로 추가.
+
+또한 사용자가 이 시점에 온보딩 캐러셀(별도 화면 시퀀스) 자체를 "다음 버전 계획에서도 완전히 뺀다"고 결정 — 메인 캐러셀이 그 역할을 대신하므로 더 이상 필요 없다고 판단. `docs/prd.md`/`docs/flow.md`에서 관련 backlog 항목 제거.
+
 ## 메인 화면 사진 선택 팝업이 엉뚱한 위치에 뜨는 문제 (실기기 QA, 2026-08-29, iOS 26)
 사용자가 "카메라로 촬영/앨범에서 선택" 팝업이 예시 사진 위에 겹쳐서 이상하게 뜬다고 지적. 처음엔 "iOS 표준 액션시트는 하단에서 슬라이드로 올라온다"고 잘못 답했는데, 실기기 스크린샷을 받아보니 전혀 다른 모습이었다 — 화면 상단, 예시 사진 바로 위에 꼬리 달린 말풍선(팝오버) 형태로 떴고, 그 꼬리도 "사진 선택하기" 버튼이 아니라 사진 쪽을 가리키고 있었다.
 

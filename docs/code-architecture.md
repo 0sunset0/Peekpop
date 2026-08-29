@@ -25,7 +25,7 @@ enum Screen {
 }
 ```
 
-v0는 온보딩 캐러셀과 브러시 보정 화면이 없다(tech-critic-lead 게이트, `docs/prd.md` 참고). `generating`/`compositing` 두 로딩 상태도 `processing` 하나로 합친다 — 사용자에게는 어차피 같은 스피너로 보이고, 중간에 melt-in할 별도 화면이 없다.
+v0는 (별도 화면 시퀀스인) 온보딩 캐러셀과 브러시 보정 화면이 없다(tech-critic-lead 게이트, `docs/prd.md` 참고) — 메인 화면 안의 3페이지 예시 캐러셀(`MainView`)은 화면 전환이 아니라 한 화면 안의 콘텐츠라 이 결정과 무관하다. `generating`/`compositing` 두 로딩 상태도 `processing` 하나로 합친다 — 사용자에게는 어차피 같은 스피너로 보이고, 중간에 melt-in할 별도 화면이 없다.
 
 `CreationFlowViewModel`이 들고, 루트 뷰가 switch로 화면을 바꾼다. `NavigationStack` 미사용 — "홈으로"/"다시 시도"처럼 스택을 여러 단계 건너뛰는 이동이 있어, push/pop보다 단일 상태값 전환이 더 간결하다.
 
