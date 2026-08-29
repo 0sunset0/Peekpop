@@ -22,6 +22,23 @@ struct ResultView: View {
     var body: some View {
         ZStack {
             content
+            VStack {
+                HStack {
+                    Spacer()
+                    Button {
+                        viewModel.goHome()
+                    } label: {
+                        Image(systemName: "xmark")
+                            .font(.system(size: 16, weight: .semibold))
+                            .foregroundStyle(.white)
+                            .frame(width: 36, height: 36)
+                            .background(Color.peekpopSurface.opacity(0.6))
+                            .clipShape(Circle())
+                    }
+                    .padding()
+                }
+                Spacer()
+            }
             if showSavedToast {
                 VStack {
                     Spacer()
@@ -103,8 +120,8 @@ struct ResultView: View {
                 .foregroundStyle(.white.opacity(0.6))
 
             // 저장이 이 화면의 메인 액션 — 꽉 찬 primary 버튼, 공유는 바로 옆에 붙는 작은
-            // 원형 아이콘 버튼(같은 줄, 저장이 남은 공간을 채움). 홈으로는 되돌리는
-            // 행동이라 따로 아래에 배경 없는 텍스트 링크로 격을 낮춘다.
+            // 원형 아이콘 버튼(같은 줄, 저장이 남은 공간을 채움). 홈으로 나가는 동작은
+            // 우측 상단 X 버튼으로 옮겨서, 하단은 "이 사진으로 뭘 할지"에만 집중하게 한다.
             HStack(spacing: 12) {
                 Button {
                     Task { await save() }
@@ -125,12 +142,7 @@ struct ResultView: View {
                 }
             }
             .padding(.horizontal, 24)
-
-            Button("홈으로") {
-                viewModel.goHome()
-            }
-            .font(.footnote)
-            .foregroundStyle(.white.opacity(0.6))
+            .padding(.bottom, 24)
         }
         .background(Color.black.ignoresSafeArea())
         .task { prepareShareURL() }

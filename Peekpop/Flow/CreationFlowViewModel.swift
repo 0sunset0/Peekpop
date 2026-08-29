@@ -104,7 +104,7 @@ final class CreationFlowViewModel: ObservableObject {
         isPickerPresented = true
     }
 
-    /// 결과 화면 "홈으로" 버튼 전용 — 메인 화면에 머무르고, 사용자가 직접
+    /// 결과 화면 우측 상단 X 버튼 전용 — 메인 화면에 머무르고, 사용자가 직접
     /// "사진 선택하기"를 눌러야 피커가 뜬다. 곧장 피커를 다시 여는 startOver()/
     /// retryFromError()와 의도적으로 다른 동작이다(디자인 리뷰 반영).
     func goHome() {
