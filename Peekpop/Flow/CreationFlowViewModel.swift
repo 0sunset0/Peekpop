@@ -115,6 +115,19 @@ final class CreationFlowViewModel: ObservableObject {
         isPickerPresented = false
     }
 
+    /// 결과 화면 좌상단 "<" 버튼 전용 — 같은 사진은 유지하고(selectedImage를 지우지
+    /// 않는다는 점이 goHome()과의 핵심 차이) 경계 사각형만 다시 맞출 수 있게 경계 확인
+    /// 화면으로 되돌아간다. quad는 마지막으로 확정했던 값 그대로 남아 있어서, 사용자는
+    /// 완전히 처음부터가 아니라 직전 사각형에서부터 다시 조정할 수 있다(디자인 리뷰 반영).
+    func backToBoundaryConfirm() {
+        resultImage = nil
+        maskedCutout = nil
+        adjustScale = 1.0
+        adjustOffset = .zero
+        adjustRotation = 0
+        screen = .boundaryConfirm
+    }
+
     /// PopOutCompositor.boundingRect와 반드시 같은 계산이어야 한다 — compositor가 이
     /// 크롭과 같은 위치/크기의 cutout을 가정하고 원래 자리 위에 확대해서 그린다.
     private func croppedImage(from image: CGImage, quad: ScreenQuad) -> CGImage? {

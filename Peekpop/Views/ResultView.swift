@@ -24,6 +24,18 @@ struct ResultView: View {
             content
             VStack {
                 HStack {
+                    Button {
+                        viewModel.backToBoundaryConfirm()
+                    } label: {
+                        Image(systemName: "chevron.left")
+                            .font(.system(size: 18, weight: .semibold))
+                            .foregroundStyle(.white)
+                            .frame(width: 36, height: 36)
+                            .background(Color.peekpopSurface.opacity(0.6))
+                            .clipShape(Circle())
+                    }
+                    .padding()
+
                     Spacer()
                     Button {
                         viewModel.goHome()

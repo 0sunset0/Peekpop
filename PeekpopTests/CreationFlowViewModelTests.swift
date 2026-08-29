@@ -54,6 +54,18 @@ final class CreationFlowViewModelTests: XCTestCase {
         XCTAssertFalse(vm.isPickerPresented)
     }
 
+    func test_backToBoundaryConfirm_keepsSelectedImageAndReturnsToBoundaryConfirm() {
+        let vm = CreationFlowViewModel()
+        let image = Self.solidImage(width: 10, height: 10)
+        vm.selectedImage = image
+        vm.resultImage = image
+        vm.screen = .result
+        vm.backToBoundaryConfirm()
+        XCTAssertEqual(vm.screen, .boundaryConfirm)
+        XCTAssertNotNil(vm.selectedImage, "unlike goHome(), the original photo should be kept")
+        XCTAssertNil(vm.resultImage)
+    }
+
     private static func solidImage(width: Int, height: Int) -> CGImage {
         let ctx = CGContext(
             data: nil, width: width, height: height, bitsPerComponent: 8, bytesPerRow: 0,
