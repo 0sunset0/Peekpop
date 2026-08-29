@@ -30,7 +30,7 @@ struct ResultView: View {
                         .foregroundStyle(.white)
                         .padding(.horizontal, 20)
                         .padding(.vertical, 12)
-                        .background(Color.black.opacity(0.85))
+                        .background(Color.peekpopSurface)
                         .clipShape(Capsule())
                         .padding(.bottom, 120)
                 }

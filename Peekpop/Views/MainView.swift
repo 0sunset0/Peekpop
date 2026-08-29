@@ -7,7 +7,7 @@ struct PrimaryButtonStyle: ButtonStyle {
             .foregroundStyle(.black)
             .frame(maxWidth: .infinity)
             .padding()
-            .background(Color.white)
+            .background(Color.peekpopAccent)
             .clipShape(RoundedRectangle(cornerRadius: 12))
             .opacity(configuration.isPressed ? 0.7 : 1)
     }

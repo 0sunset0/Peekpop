@@ -6,7 +6,7 @@ struct ProcessingView: View {
             Color.black.ignoresSafeArea()
             VStack(spacing: 16) {
                 ProgressView()
-                    .tint(.white)
+                    .tint(.peekpopAccent)
                 Text("만드는 중...")
                     .font(.title3.weight(.semibold))
                     .foregroundStyle(.white)

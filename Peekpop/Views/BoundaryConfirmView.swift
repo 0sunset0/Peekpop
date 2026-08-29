@@ -22,9 +22,12 @@ struct BoundaryConfirmView: View {
                     HStack {
                         Button { viewModel.startOver() } label: {
                             Image(systemName: "chevron.left")
-                                .font(.system(size: 20, weight: .semibold))
+                                .font(.system(size: 18, weight: .semibold))
+                                .foregroundStyle(.white)
+                                .frame(width: 36, height: 36)
+                                .background(Color.black.opacity(0.45))
+                                .clipShape(Circle())
                         }
-                        .foregroundStyle(.white)
                         .padding()
                         Spacer()
                     }
