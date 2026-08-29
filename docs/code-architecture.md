@@ -24,7 +24,7 @@ enum Screen {
 
 v0는 온보딩 캐러셀과 브러시 보정 화면이 없다(tech-critic-lead 게이트, `docs/prd.md` 참고). `generating`/`compositing` 두 로딩 상태도 `processing` 하나로 합친다 — 사용자에게는 어차피 같은 스피너로 보이고, 중간에 melt-in할 별도 화면이 없다.
 
-`CreationFlowViewModel`이 들고, 루트 뷰가 switch로 화면을 바꾼다. `NavigationStack` 미사용 — "다시 만들기"처럼 스택을 여러 단계 건너뛰는 이동이 있어, push/pop보다 단일 상태값 전환이 더 간결하다.
+`CreationFlowViewModel`이 들고, 루트 뷰가 switch로 화면을 바꾼다. `NavigationStack` 미사용 — "홈으로"/"다시 시도"처럼 스택을 여러 단계 건너뛰는 이동이 있어, push/pop보다 단일 상태값 전환이 더 간결하다.
 
 ## 동시성
 
@@ -44,7 +44,9 @@ Vision 호출(`VNImageRequestHandler.perform`, 동기 API)은 `Task { }` 안에�
 
 ## 에러 처리
 
-두 경우 모두 `CreationFlowViewModel`이 `Screen.error(message)`로 전환하고, 같은 에러 화면("다시 시도" 버튼 하나로 사진 선택 화면 복귀)을 재사용한다 — 결과 화면의 "다시 만들기"와 동일 패턴.
+두 경우 모두 `CreationFlowViewModel`이 `Screen.error(message)`로 전환하고, 같은 에러 화면("다시 시도" 버튼 하나로 사진 선택 화면 복귀)을 재사용한다.
+
+`retryFromError()`(에러→피커 자동 표시), `startOver()`(경계확인 뒤로가기 `<`→피커 자동 표시)와 `goHome()`(결과 화면 "홈으로"→메인에 머무름, 피커 자동 표시 안 함)은 서로 다른 함수다 — 이름이 비슷해 보이지만 뒤로가기·재시도는 "바로 사진 선택으로", 홈으로는 "메인 화면에서 잠깐 멈춤"으로 의도적으로 다르게 동작한다(디자인 리뷰 반영).
 
 1. Vision 단계에서 실제 예외(인식 실패가 아닌 진짜 오류)가 발생했을 때.
 2. `SubjectSegmenter`가 마스크는 만들었지만 결과가 degenerate(커버리지가 `plausibleCoverageRange` 밖 — 거의 비어있거나 거의 전체를 덮음)할 때. v0엔 브러시로 고쳐 쓰는 UI가 없으므로, 애매한 경우도 전부 재시도로 보낸다(다음 버전의 브러시 보정 화면이 이 경로를 대체할 예정).

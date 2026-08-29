@@ -8,6 +8,7 @@ struct ProcessingView: View {
                 ProgressView()
                     .tint(.white)
                 Text("만드는 중...")
+                    .font(.title3.weight(.semibold))
                     .foregroundStyle(.white)
             }
         }

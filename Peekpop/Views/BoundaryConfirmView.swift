@@ -30,6 +30,7 @@ struct BoundaryConfirmView: View {
                     }
                     Spacer()
                     Text("화면에 보이는 사진이 네 꼭짓점 안에\n전부 들어오도록 맞춰주세요 (머리 위쪽까지!)")
+                        .font(.title3.weight(.semibold))
                         .multilineTextAlignment(.center)
                         .foregroundStyle(.white)
                         .padding(.bottom, 8)

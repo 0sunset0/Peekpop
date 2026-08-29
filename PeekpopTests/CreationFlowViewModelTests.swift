@@ -46,6 +46,14 @@ final class CreationFlowViewModelTests: XCTestCase {
         XCTAssertTrue(vm.isPickerPresented)
     }
 
+    func test_goHome_returnsToMainWithoutPresentingPicker() {
+        let vm = CreationFlowViewModel()
+        vm.screen = .result
+        vm.goHome()
+        XCTAssertEqual(vm.screen, .main)
+        XCTAssertFalse(vm.isPickerPresented)
+    }
+
     private static func solidImage(width: Int, height: Int) -> CGImage {
         let ctx = CGContext(
             data: nil, width: width, height: height, bitsPerComponent: 8, bytesPerRow: 0,

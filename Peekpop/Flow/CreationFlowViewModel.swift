@@ -104,6 +104,17 @@ final class CreationFlowViewModel: ObservableObject {
         isPickerPresented = true
     }
 
+    /// 결과 화면 "홈으로" 버튼 전용 — 메인 화면에 머무르고, 사용자가 직접
+    /// "사진 선택하기"를 눌러야 피커가 뜬다. 곧장 피커를 다시 여는 startOver()/
+    /// retryFromError()와 의도적으로 다른 동작이다(디자인 리뷰 반영).
+    func goHome() {
+        selectedImage = nil
+        resultImage = nil
+        maskedCutout = nil
+        screen = .main
+        isPickerPresented = false
+    }
+
     /// PopOutCompositor.boundingRect와 반드시 같은 계산이어야 한다 — compositor가 이
     /// 크롭과 같은 위치/크기의 cutout을 가정하고 원래 자리 위에 확대해서 그린다.
     private func croppedImage(from image: CGImage, quad: ScreenQuad) -> CGImage? {

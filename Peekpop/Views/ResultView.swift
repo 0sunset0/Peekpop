@@ -100,10 +100,10 @@ struct ResultView: View {
 
             Text("드래그로 위치, 두 손가락으로 크기·회전을 조정할 수 있어요")
                 .font(.footnote)
-                .foregroundStyle(.white.opacity(0.7))
+                .foregroundStyle(.white.opacity(0.6))
 
             // 저장이 이 화면의 메인 액션 — 꽉 찬 primary 버튼, 공유는 바로 옆에 붙는 작은
-            // 원형 아이콘 버튼(같은 줄, 저장이 남은 공간을 채움). 다시 만들기는 되돌리는
+            // 원형 아이콘 버튼(같은 줄, 저장이 남은 공간을 채움). 홈으로는 되돌리는
             // 행동이라 따로 아래에 배경 없는 텍스트 링크로 격을 낮춘다.
             HStack(spacing: 12) {
                 Button {
@@ -126,11 +126,11 @@ struct ResultView: View {
             }
             .padding(.horizontal, 24)
 
-            Button("다시 만들기") {
-                viewModel.startOver()
+            Button("홈으로") {
+                viewModel.goHome()
             }
-            .font(.subheadline)
-            .foregroundStyle(.white.opacity(0.75))
+            .font(.footnote)
+            .foregroundStyle(.white.opacity(0.6))
         }
         .background(Color.black.ignoresSafeArea())
         .task { prepareShareURL() }
