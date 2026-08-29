@@ -39,7 +39,8 @@
     {
       "phase": 5,
       "name": "pop-out-compositor",
-      "status": "pending"
+      "status": "completed",
+      "started_at": "2026-08-29T17:17:36+0900"
     },
     {
       "phase": 6,

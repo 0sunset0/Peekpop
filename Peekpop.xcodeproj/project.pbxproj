@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		006A4BDA277CCE7D8CAA6238 /* PopOutCompositorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362F84BFAF9D42B322D7C440 /* PopOutCompositorTests.swift */; };
 		059AF32C6549EE8D21942050 /* phone-in-flight.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A6C7418DBDF242E568F1560 /* phone-in-flight.png */; };
 		242906E60524E06C7636CF1B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 1CA6A5802CCD58A7B0C91491 /* PrivacyInfo.xcprivacy */; };
 		40E7614552313C1D46C2C170 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59DC39539F3A374B3C79AB77 /* Assets.xcassets */; };
 		47BA8FB25CD93B1877083EC1 /* phone-recording.png in Resources */ = {isa = PBXBuildFile; fileRef = 963F0E2DD7F6B4D09759EEBD /* phone-recording.png */; };
 		48E3CE752A82D49355237785 /* phone-tilted-landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D275AB179A972BC49DEEAA0 /* phone-tilted-landscape.png */; };
+		61294BF907FF1D2AC5A3437B /* PopOutCompositor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F258C3042EC2AAA7804CA183 /* PopOutCompositor.swift */; };
 		63CB6305E04577C01306EFD9 /* PeekpopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF51204F66CC9191DA531E94 /* PeekpopApp.swift */; };
 		64DCAD6A3A18D10E606C4A5A /* phone-front-facing.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F2C8656E2D70BC2BBAA8E4E /* phone-front-facing.png */; };
 		6FAAE10B5C60E8FE8408077D /* PhoneFrameDetectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC0F829C74E4041DEF54CEA /* PhoneFrameDetectorTests.swift */; };
@@ -39,6 +41,7 @@
 		1A6C7418DBDF242E568F1560 /* phone-in-flight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone-in-flight.png"; sourceTree = "<group>"; };
 		1CA6A5802CCD58A7B0C91491 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		2D275AB179A972BC49DEEAA0 /* phone-tilted-landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone-tilted-landscape.png"; sourceTree = "<group>"; };
+		362F84BFAF9D42B322D7C440 /* PopOutCompositorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOutCompositorTests.swift; sourceTree = "<group>"; };
 		36D22C1A9DAFCE0994FF05BC /* PeekpopTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = PeekpopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		59DC39539F3A374B3C79AB77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6FDF550FCD7C2A24A839D77C /* Peekpop.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Peekpop.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,6 +53,7 @@
 		BE4E7D467193401E59F7433C /* ScreenQuad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenQuad.swift; sourceTree = "<group>"; };
 		BFC0F829C74E4041DEF54CEA /* PhoneFrameDetectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneFrameDetectorTests.swift; sourceTree = "<group>"; };
 		CF51204F66CC9191DA531E94 /* PeekpopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeekpopApp.swift; sourceTree = "<group>"; };
+		F258C3042EC2AAA7804CA183 /* PopOutCompositor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOutCompositor.swift; sourceTree = "<group>"; };
 		F8CE532DCABF989802234E4D /* ScreenQuadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenQuadTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,6 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				019DA4C1DFB5B980295ABB7C /* PhoneFrameDetector.swift */,
+				F258C3042EC2AAA7804CA183 /* PopOutCompositor.swift */,
 				74B3A939D1064249BF0CCFD2 /* SubjectSegmenter.swift */,
 			);
 			path = Services;
@@ -67,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				BFC0F829C74E4041DEF54CEA /* PhoneFrameDetectorTests.swift */,
+				362F84BFAF9D42B322D7C440 /* PopOutCompositorTests.swift */,
 				F8CE532DCABF989802234E4D /* ScreenQuadTests.swift */,
 				A0FA3DDF0E31C7E005F4D1C2 /* SubjectSegmenterTests.swift */,
 			);
@@ -226,6 +232,7 @@
 			files = (
 				63CB6305E04577C01306EFD9 /* PeekpopApp.swift in Sources */,
 				A3C488EEBC1ADFB428291412 /* PhoneFrameDetector.swift in Sources */,
+				61294BF907FF1D2AC5A3437B /* PopOutCompositor.swift in Sources */,
 				F9A5D4C932F63E819B546993 /* Screen.swift in Sources */,
 				F1CC67B0C6D1CA3CA5D34D51 /* ScreenQuad.swift in Sources */,
 				CAB2626DB09191E9558098F1 /* SubjectSegmenter.swift in Sources */,
@@ -237,6 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FAAE10B5C60E8FE8408077D /* PhoneFrameDetectorTests.swift in Sources */,
+				006A4BDA277CCE7D8CAA6238 /* PopOutCompositorTests.swift in Sources */,
 				EA479C1966516D18967B11FF /* ScreenQuadTests.swift in Sources */,
 				DCB24C98FC70BC57CA150A1B /* SubjectSegmenterTests.swift in Sources */,
 			);
