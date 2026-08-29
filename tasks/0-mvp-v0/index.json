@@ -57,7 +57,8 @@
     {
       "phase": 8,
       "name": "boundary-confirm-view",
-      "status": "pending"
+      "status": "completed",
+      "started_at": "2026-08-29T17:27:45+0900"
     },
     {
       "phase": 9,
