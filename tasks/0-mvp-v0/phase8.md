@@ -112,6 +112,7 @@ private struct QuadOverlay: View {
 ## Acceptance Criteria
 
 ```bash
+xcodegen generate
 xcodebuild -project Peekpop.xcodeproj -scheme Peekpop -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 17' build
 ```
 

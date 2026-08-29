@@ -13,7 +13,26 @@
 
 ## 작업 내용
 
-`Peekpop/Assets.xcassets`에 Image Set `phone-front-facing`을 추가하고, 레포 루트의 `TestFixtures/phone-front-facing.png`를 넣어라(1x 슬롯이면 충분) — 메인 화면의 예시 사진으로 재사용한다.
+메인 화면 예시 사진용 Image Set을 **파일로 직접** 만들어라(Xcode GUI 아님 — CLI 전용 원칙, Phase 1 참고). `Peekpop/Assets.xcassets/phone-front-facing.imageset/Contents.json`:
+
+```json
+{
+  "images": [
+    { "filename": "phone-front-facing.png", "idiom": "universal", "scale": "1x" },
+    { "idiom": "universal", "scale": "2x" },
+    { "idiom": "universal", "scale": "3x" }
+  ],
+  "info": { "author": "xcode", "version": 1 }
+}
+```
+
+그리고 레포 루트의 `TestFixtures/phone-front-facing.png`를 `Peekpop/Assets.xcassets/phone-front-facing.imageset/phone-front-facing.png`로 복사하라(2x/3x 슬롯은 파일 없이 비워둬도 된다 — SwiftUI가 1x로 폴백한다):
+
+```bash
+cp TestFixtures/phone-front-facing.png Peekpop/Assets.xcassets/phone-front-facing.imageset/phone-front-facing.png
+```
+
+`project.yml`은 이미 `Peekpop` 타겟의 `sources`에 `path: Peekpop`을 포함하고 있어 `Assets.xcassets`가 자동으로 인식된다 — `xcodegen generate`를 다시 실행할 필요는 있다(새 파일을 추가했으므로).
 
 `Peekpop/Views/PhotoPicker.swift`를 작성하라:
 
@@ -157,12 +176,13 @@ struct MainView: View {
 ## Acceptance Criteria
 
 ```bash
+xcodegen generate
 xcodebuild -project Peekpop.xcodeproj -scheme Peekpop -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 17' build
 ```
 
 ## AC 검증 방법
 
-빌드가 `** BUILD SUCCEEDED **`로 성공하면 `tasks/0-mvp-v0/index.json`의 phase 7 status를 `"completed"`로 변경하라. 이 phase 시점엔 아직 `RootView`가 없어서 앱을 직접 실행해 확인할 수는 없다(Phase 9에서 배선됨) — 빌드 성공만으로 충분하다. 3회 이상 빌드 실패하면 status를 `"error"`로.
+새 파일(뷰 3개, 이미지셋)을 추가했으므로 빌드 전에 반드시 `xcodegen generate`를 다시 실행해 `.xcodeproj`가 최신 파일 목록을 반영하게 하라. 빌드가 `** BUILD SUCCEEDED **`로 성공하면 `tasks/0-mvp-v0/index.json`의 phase 7 status를 `"completed"`로 변경하라. 이 phase 시점엔 아직 `RootView`가 없어서 앱을 직접 실행해 확인할 수는 없다(Phase 9에서 배선됨) — 빌드 성공만으로 충분하다. 3회 이상 빌드 실패하면 status를 `"error"`로.
 
 ## 주의사항
 

@@ -15,6 +15,7 @@
 ### 1. 전체 유닛 테스트 실행
 
 ```bash
+xcodegen generate
 xcodebuild test -project Peekpop.xcodeproj -scheme Peekpop -destination 'platform=iOS Simulator,name=iPhone 17'
 ```
 
@@ -43,6 +44,7 @@ xcodebuild test -project Peekpop.xcodeproj -scheme Peekpop -destination 'platfor
 ## Acceptance Criteria
 
 ```bash
+xcodegen generate
 xcodebuild test -project Peekpop.xcodeproj -scheme Peekpop -destination 'platform=iOS Simulator,name=iPhone 17'
 # 전체 19개 유닛 테스트 케이스 PASS
 ```

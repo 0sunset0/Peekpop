@@ -119,6 +119,7 @@ final class PopOutCompositorTests: XCTestCase {
 ## Acceptance Criteria
 
 ```bash
+xcodegen generate
 xcodebuild test -project Peekpop.xcodeproj -scheme Peekpop -destination 'platform=iOS Simulator,name=iPhone 17' -only-testing:PeekpopTests/PopOutCompositorTests
 ```
 
