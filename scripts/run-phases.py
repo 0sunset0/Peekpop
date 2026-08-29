@@ -18,7 +18,10 @@ TASKS_DIR = ROOT / "tasks"
 COMMIT_MSG_TEMPLATE = "feat({task_name}): phase {phase} — {phase_name}"
 RUNNER_COMMIT_MSG_TEMPLATE = "chore({task_name}): phase {phase} output + timestamps"
 
-PREAMBLE_TEMPLATE = """당신은 {project}} 프로젝트의 개발자입니다. 아래 phase의 작업을 수행하세요.
+def build_preamble(project: str, task_dir: str, task_name: str, phase_num: int, phase_name: str) -> str:
+    # f-string, not str.format() — the commit-message line below intentionally
+    # contains braces that must NOT be treated as format placeholders.
+    return f"""당신은 {project} 프로젝트의 개발자입니다. 아래 phase의 작업을 수행하세요.
 
 중요한 규칙:
 1. 작업 전에 반드시 문서를 읽고 전체 설계를 이해하세요.
@@ -27,10 +30,10 @@ PREAMBLE_TEMPLATE = """당신은 {project}} 프로젝트의 개발자입니다. 
 4. 불필요한 파일이나 코드를 추가하지 마세요. phase에 명시된 것만 작업하세요.
 5. 기존 테스트를 깨뜨리지 마세요.
 6. AC 통과 후, index.json 업데이트까지 완료했다면, 모든 변경사항을 아래 형식으로 커밋하세요:
-   feat({task_name}): phase {phase} — {phase_name}
+   feat({task_name}): phase {phase_num} — {phase_name}
 
 아래는 이번 phase의 상세 내용입니다:
-""".replace("{project}}", "{project}")
+"""
 
 
 def now_iso() -> str:
@@ -65,10 +68,12 @@ def run_phase(task_dir: str, task_index_path: Path, task_index: dict, phase_entr
     phase_file = TASKS_DIR / task_dir / f"phase{phase_num}.md"
     phase_content = phase_file.read_text()
 
-    preamble = PREAMBLE_TEMPLATE.format(
+    preamble = build_preamble(
         project=task_index.get("project", "Peekpop"),
         task_dir=task_dir,
-        phase=phase_num,
+        task_name=task_index["task"],
+        phase_num=phase_num,
+        phase_name=phase_name,
     )
     prompt = preamble + "\n" + phase_content
 
