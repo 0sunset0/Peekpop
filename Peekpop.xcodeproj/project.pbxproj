@@ -1,0 +1,556 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		006A4BDA277CCE7D8CAA6238 /* PopOutCompositorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362F84BFAF9D42B322D7C440 /* PopOutCompositorTests.swift */; };
+		059AF32C6549EE8D21942050 /* phone-in-flight.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A6C7418DBDF242E568F1560 /* phone-in-flight.png */; };
+		1825404B8066AFCDCCB016B7 /* CreationFlowViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C729F71E3302D576A16C7DE /* CreationFlowViewModelTests.swift */; };
+		1C192837BD5120CA8B5C2D23 /* ImageLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD96DEF1B85BF3A54F7B5C29 /* ImageLayout.swift */; };
+		1C436E74AC2274543776BDCF /* BoundaryConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80FE257381DF40A4D3923B1 /* BoundaryConfirmView.swift */; };
+		242906E60524E06C7636CF1B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 1CA6A5802CCD58A7B0C91491 /* PrivacyInfo.xcprivacy */; };
+		2639D06DB7FE766DC87EA44B /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A84459A2BA1354348D3792 /* RootView.swift */; };
+		40E7614552313C1D46C2C170 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59DC39539F3A374B3C79AB77 /* Assets.xcassets */; };
+		4337E5FC013D0400DCD2D8B8 /* CreationFlowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D089CB17A644411793C80397 /* CreationFlowViewModel.swift */; };
+		47BA8FB25CD93B1877083EC1 /* phone-recording.png in Resources */ = {isa = PBXBuildFile; fileRef = 963F0E2DD7F6B4D09759EEBD /* phone-recording.png */; };
+		48E3CE752A82D49355237785 /* phone-tilted-landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D275AB179A972BC49DEEAA0 /* phone-tilted-landscape.png */; };
+		4B353E2A35C64758082B413A /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694CF19DC41FFFC42AB3EBFD /* PhotoPicker.swift */; };
+		61294BF907FF1D2AC5A3437B /* PopOutCompositor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F258C3042EC2AAA7804CA183 /* PopOutCompositor.swift */; };
+		63CB6305E04577C01306EFD9 /* PeekpopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF51204F66CC9191DA531E94 /* PeekpopApp.swift */; };
+		64DCAD6A3A18D10E606C4A5A /* phone-front-facing.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F2C8656E2D70BC2BBAA8E4E /* phone-front-facing.png */; };
+		6FAAE10B5C60E8FE8408077D /* PhoneFrameDetectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC0F829C74E4041DEF54CEA /* PhoneFrameDetectorTests.swift */; };
+		879AD0D3149BDD04C53E4C14 /* ProcessingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E225B20B3E9CA18F8C390E /* ProcessingView.swift */; };
+		8DB087BF36BB6BFBF999C6C6 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375C31F08CAABB922E4D3ACB /* ResultView.swift */; };
+		97BB555DC8435CE9B287C2E7 /* ImageLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35061E706B733785F6F674B /* ImageLayoutTests.swift */; };
+		A3C488EEBC1ADFB428291412 /* PhoneFrameDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019DA4C1DFB5B980295ABB7C /* PhoneFrameDetector.swift */; };
+		A470529B55948F6CC24BF5DE /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4AF316094A5EF79994ECC0 /* AppColor.swift */; };
+		CAB2626DB09191E9558098F1 /* SubjectSegmenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B3A939D1064249BF0CCFD2 /* SubjectSegmenter.swift */; };
+		CEDFCD4BAE5AF5F058E482D1 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFC3213B7CCCD1764749F27 /* MainView.swift */; };
+		D94B23C6C1BA2A1E618D767B /* CameraPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C250DC4DB379361E15B302 /* CameraPicker.swift */; };
+		DCB24C98FC70BC57CA150A1B /* SubjectSegmenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FA3DDF0E31C7E005F4D1C2 /* SubjectSegmenterTests.swift */; };
+		EA479C1966516D18967B11FF /* ScreenQuadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CE532DCABF989802234E4D /* ScreenQuadTests.swift */; };
+		ECE7260A94FB8950DB293166 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AE0C0898AECE032E0DD4D8 /* ErrorView.swift */; };
+		F1CC67B0C6D1CA3CA5D34D51 /* ScreenQuad.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4E7D467193401E59F7433C /* ScreenQuad.swift */; };
+		F9A5D4C932F63E819B546993 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FDEBA9FADB92CFEC4AEEB7 /* Screen.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4225FB0087678C28801C114F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 91A85E9550E958819D7AEC01 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 43BF67E24D3F2CCA5210CB40;
+			remoteInfo = Peekpop;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		019DA4C1DFB5B980295ABB7C /* PhoneFrameDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneFrameDetector.swift; sourceTree = "<group>"; };
+		03E225B20B3E9CA18F8C390E /* ProcessingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingView.swift; sourceTree = "<group>"; };
+		08FDEBA9FADB92CFEC4AEEB7 /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
+		16C250DC4DB379361E15B302 /* CameraPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPicker.swift; sourceTree = "<group>"; };
+		1A6C7418DBDF242E568F1560 /* phone-in-flight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone-in-flight.png"; sourceTree = "<group>"; };
+		1CA6A5802CCD58A7B0C91491 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		1DFC3213B7CCCD1764749F27 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		2C729F71E3302D576A16C7DE /* CreationFlowViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationFlowViewModelTests.swift; sourceTree = "<group>"; };
+		2D275AB179A972BC49DEEAA0 /* phone-tilted-landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone-tilted-landscape.png"; sourceTree = "<group>"; };
+		362F84BFAF9D42B322D7C440 /* PopOutCompositorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOutCompositorTests.swift; sourceTree = "<group>"; };
+		36D22C1A9DAFCE0994FF05BC /* PeekpopTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = PeekpopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		375C31F08CAABB922E4D3ACB /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		59DC39539F3A374B3C79AB77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		694CF19DC41FFFC42AB3EBFD /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
+		6FDF550FCD7C2A24A839D77C /* Peekpop.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Peekpop.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		70AE0C0898AECE032E0DD4D8 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		718E5D54581074BFE3565783 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		74B3A939D1064249BF0CCFD2 /* SubjectSegmenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectSegmenter.swift; sourceTree = "<group>"; };
+		7F2C8656E2D70BC2BBAA8E4E /* phone-front-facing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone-front-facing.png"; sourceTree = "<group>"; };
+		963F0E2DD7F6B4D09759EEBD /* phone-recording.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone-recording.png"; sourceTree = "<group>"; };
+		A0FA3DDF0E31C7E005F4D1C2 /* SubjectSegmenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectSegmenterTests.swift; sourceTree = "<group>"; };
+		B80FE257381DF40A4D3923B1 /* BoundaryConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundaryConfirmView.swift; sourceTree = "<group>"; };
+		BD96DEF1B85BF3A54F7B5C29 /* ImageLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLayout.swift; sourceTree = "<group>"; };
+		BE4E7D467193401E59F7433C /* ScreenQuad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenQuad.swift; sourceTree = "<group>"; };
+		BFC0F829C74E4041DEF54CEA /* PhoneFrameDetectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneFrameDetectorTests.swift; sourceTree = "<group>"; };
+		CC4AF316094A5EF79994ECC0 /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
+		CF51204F66CC9191DA531E94 /* PeekpopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeekpopApp.swift; sourceTree = "<group>"; };
+		D089CB17A644411793C80397 /* CreationFlowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationFlowViewModel.swift; sourceTree = "<group>"; };
+		D35061E706B733785F6F674B /* ImageLayoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLayoutTests.swift; sourceTree = "<group>"; };
+		F258C3042EC2AAA7804CA183 /* PopOutCompositor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOutCompositor.swift; sourceTree = "<group>"; };
+		F6A84459A2BA1354348D3792 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		F8CE532DCABF989802234E4D /* ScreenQuadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenQuadTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		18041F85952C4112C03246FA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				019DA4C1DFB5B980295ABB7C /* PhoneFrameDetector.swift */,
+				F258C3042EC2AAA7804CA183 /* PopOutCompositor.swift */,
+				74B3A939D1064249BF0CCFD2 /* SubjectSegmenter.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		32F63A418FFB0C00160B5911 /* PeekpopTests */ = {
+			isa = PBXGroup;
+			children = (
+				2C729F71E3302D576A16C7DE /* CreationFlowViewModelTests.swift */,
+				D35061E706B733785F6F674B /* ImageLayoutTests.swift */,
+				BFC0F829C74E4041DEF54CEA /* PhoneFrameDetectorTests.swift */,
+				362F84BFAF9D42B322D7C440 /* PopOutCompositorTests.swift */,
+				F8CE532DCABF989802234E4D /* ScreenQuadTests.swift */,
+				A0FA3DDF0E31C7E005F4D1C2 /* SubjectSegmenterTests.swift */,
+			);
+			path = PeekpopTests;
+			sourceTree = "<group>";
+		};
+		866C23FBE8F388F45389C179 /* Peekpop */ = {
+			isa = PBXGroup;
+			children = (
+				59DC39539F3A374B3C79AB77 /* Assets.xcassets */,
+				718E5D54581074BFE3565783 /* Info.plist */,
+				CF51204F66CC9191DA531E94 /* PeekpopApp.swift */,
+				1CA6A5802CCD58A7B0C91491 /* PrivacyInfo.xcprivacy */,
+				99899CE9179229140349DBF5 /* Flow */,
+				18041F85952C4112C03246FA /* Services */,
+				D7A808FAE7F0CAB18B79CC91 /* Shared */,
+				8FD6C0D5B0A3E53A7D9718EA /* Views */,
+			);
+			path = Peekpop;
+			sourceTree = "<group>";
+		};
+		8E74DA10128663D97B4DFCE7 /* TestFixtures */ = {
+			isa = PBXGroup;
+			children = (
+				7F2C8656E2D70BC2BBAA8E4E /* phone-front-facing.png */,
+				1A6C7418DBDF242E568F1560 /* phone-in-flight.png */,
+				963F0E2DD7F6B4D09759EEBD /* phone-recording.png */,
+				2D275AB179A972BC49DEEAA0 /* phone-tilted-landscape.png */,
+			);
+			path = TestFixtures;
+			sourceTree = "<group>";
+		};
+		8FD6C0D5B0A3E53A7D9718EA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B80FE257381DF40A4D3923B1 /* BoundaryConfirmView.swift */,
+				16C250DC4DB379361E15B302 /* CameraPicker.swift */,
+				70AE0C0898AECE032E0DD4D8 /* ErrorView.swift */,
+				1DFC3213B7CCCD1764749F27 /* MainView.swift */,
+				694CF19DC41FFFC42AB3EBFD /* PhotoPicker.swift */,
+				03E225B20B3E9CA18F8C390E /* ProcessingView.swift */,
+				375C31F08CAABB922E4D3ACB /* ResultView.swift */,
+				F6A84459A2BA1354348D3792 /* RootView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9703027D6FF9ED35AA8588F2 = {
+			isa = PBXGroup;
+			children = (
+				866C23FBE8F388F45389C179 /* Peekpop */,
+				32F63A418FFB0C00160B5911 /* PeekpopTests */,
+				8E74DA10128663D97B4DFCE7 /* TestFixtures */,
+				EEEAAFBC2931A2CB89F3D2B2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		99899CE9179229140349DBF5 /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				D089CB17A644411793C80397 /* CreationFlowViewModel.swift */,
+			);
+			path = Flow;
+			sourceTree = "<group>";
+		};
+		D7A808FAE7F0CAB18B79CC91 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				CC4AF316094A5EF79994ECC0 /* AppColor.swift */,
+				BD96DEF1B85BF3A54F7B5C29 /* ImageLayout.swift */,
+				08FDEBA9FADB92CFEC4AEEB7 /* Screen.swift */,
+				BE4E7D467193401E59F7433C /* ScreenQuad.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		EEEAAFBC2931A2CB89F3D2B2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6FDF550FCD7C2A24A839D77C /* Peekpop.app */,
+				36D22C1A9DAFCE0994FF05BC /* PeekpopTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		43BF67E24D3F2CCA5210CB40 /* Peekpop */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E68B31DF7E69790CB4B64717 /* Build configuration list for PBXNativeTarget "Peekpop" */;
+			buildPhases = (
+				058BC9331FCF602C3615D6BB /* Sources */,
+				BECE9A7801C58C4004BC70DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Peekpop;
+			packageProductDependencies = (
+			);
+			productName = Peekpop;
+			productReference = 6FDF550FCD7C2A24A839D77C /* Peekpop.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E18DB284439F87B44E30D271 /* PeekpopTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F4C5C3A109E519F7B9CED579 /* Build configuration list for PBXNativeTarget "PeekpopTests" */;
+			buildPhases = (
+				1E8B26E4AA485DFEF79B1C7F /* Sources */,
+				63B7310DB1DE8A7454BA73C6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D2C16D2AE021B99B1DA6DC6C /* PBXTargetDependency */,
+			);
+			name = PeekpopTests;
+			packageProductDependencies = (
+			);
+			productName = PeekpopTests;
+			productReference = 36D22C1A9DAFCE0994FF05BC /* PeekpopTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		91A85E9550E958819D7AEC01 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+				};
+			};
+			buildConfigurationList = 262F31C8355FE2A973DDB191 /* Build configuration list for PBXProject "Peekpop" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 9703027D6FF9ED35AA8588F2;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = EEEAAFBC2931A2CB89F3D2B2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				43BF67E24D3F2CCA5210CB40 /* Peekpop */,
+				E18DB284439F87B44E30D271 /* PeekpopTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		63B7310DB1DE8A7454BA73C6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64DCAD6A3A18D10E606C4A5A /* phone-front-facing.png in Resources */,
+				059AF32C6549EE8D21942050 /* phone-in-flight.png in Resources */,
+				47BA8FB25CD93B1877083EC1 /* phone-recording.png in Resources */,
+				48E3CE752A82D49355237785 /* phone-tilted-landscape.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BECE9A7801C58C4004BC70DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40E7614552313C1D46C2C170 /* Assets.xcassets in Resources */,
+				242906E60524E06C7636CF1B /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		058BC9331FCF602C3615D6BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A470529B55948F6CC24BF5DE /* AppColor.swift in Sources */,
+				1C436E74AC2274543776BDCF /* BoundaryConfirmView.swift in Sources */,
+				D94B23C6C1BA2A1E618D767B /* CameraPicker.swift in Sources */,
+				4337E5FC013D0400DCD2D8B8 /* CreationFlowViewModel.swift in Sources */,
+				ECE7260A94FB8950DB293166 /* ErrorView.swift in Sources */,
+				1C192837BD5120CA8B5C2D23 /* ImageLayout.swift in Sources */,
+				CEDFCD4BAE5AF5F058E482D1 /* MainView.swift in Sources */,
+				63CB6305E04577C01306EFD9 /* PeekpopApp.swift in Sources */,
+				A3C488EEBC1ADFB428291412 /* PhoneFrameDetector.swift in Sources */,
+				4B353E2A35C64758082B413A /* PhotoPicker.swift in Sources */,
+				61294BF907FF1D2AC5A3437B /* PopOutCompositor.swift in Sources */,
+				879AD0D3149BDD04C53E4C14 /* ProcessingView.swift in Sources */,
+				8DB087BF36BB6BFBF999C6C6 /* ResultView.swift in Sources */,
+				2639D06DB7FE766DC87EA44B /* RootView.swift in Sources */,
+				F9A5D4C932F63E819B546993 /* Screen.swift in Sources */,
+				F1CC67B0C6D1CA3CA5D34D51 /* ScreenQuad.swift in Sources */,
+				CAB2626DB09191E9558098F1 /* SubjectSegmenter.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1E8B26E4AA485DFEF79B1C7F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1825404B8066AFCDCCB016B7 /* CreationFlowViewModelTests.swift in Sources */,
+				97BB555DC8435CE9B287C2E7 /* ImageLayoutTests.swift in Sources */,
+				6FAAE10B5C60E8FE8408077D /* PhoneFrameDetectorTests.swift in Sources */,
+				006A4BDA277CCE7D8CAA6238 /* PopOutCompositorTests.swift in Sources */,
+				EA479C1966516D18967B11FF /* ScreenQuadTests.swift in Sources */,
+				DCB24C98FC70BC57CA150A1B /* SubjectSegmenterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D2C16D2AE021B99B1DA6DC6C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 43BF67E24D3F2CCA5210CB40 /* Peekpop */;
+			targetProxy = 4225FB0087678C28801C114F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2538EF2D91FB590D420903D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Peekpop/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.peekpop.Peekpop;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		270B5F145D73767D777AE230 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.peekpop.PeekpopTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Peekpop.app/Peekpop";
+			};
+			name = Release;
+		};
+		34908A567E44253C56C86CB1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Peekpop/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.peekpop.Peekpop;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		4F778DAD2580E301750114CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		7749D8451BBD062761AD6AB1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.peekpop.PeekpopTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Peekpop.app/Peekpop";
+			};
+			name = Debug;
+		};
+		80A0B1F66BEA40B611F0C8F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		262F31C8355FE2A973DDB191 /* Build configuration list for PBXProject "Peekpop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				80A0B1F66BEA40B611F0C8F4 /* Debug */,
+				4F778DAD2580E301750114CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E68B31DF7E69790CB4B64717 /* Build configuration list for PBXNativeTarget "Peekpop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2538EF2D91FB590D420903D6 /* Debug */,
+				34908A567E44253C56C86CB1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		F4C5C3A109E519F7B9CED579 /* Build configuration list for PBXNativeTarget "PeekpopTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7749D8451BBD062761AD6AB1 /* Debug */,
+				270B5F145D73767D777AE230 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 91A85E9550E958819D7AEC01 /* Project object */;
+}
