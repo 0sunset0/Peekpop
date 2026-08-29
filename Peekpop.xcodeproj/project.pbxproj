@@ -10,6 +10,7 @@
 		006A4BDA277CCE7D8CAA6238 /* PopOutCompositorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362F84BFAF9D42B322D7C440 /* PopOutCompositorTests.swift */; };
 		059AF32C6549EE8D21942050 /* phone-in-flight.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A6C7418DBDF242E568F1560 /* phone-in-flight.png */; };
 		1825404B8066AFCDCCB016B7 /* CreationFlowViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C729F71E3302D576A16C7DE /* CreationFlowViewModelTests.swift */; };
+		1C192837BD5120CA8B5C2D23 /* ImageLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD96DEF1B85BF3A54F7B5C29 /* ImageLayout.swift */; };
 		1C436E74AC2274543776BDCF /* BoundaryConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80FE257381DF40A4D3923B1 /* BoundaryConfirmView.swift */; };
 		242906E60524E06C7636CF1B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 1CA6A5802CCD58A7B0C91491 /* PrivacyInfo.xcprivacy */; };
 		2639D06DB7FE766DC87EA44B /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A84459A2BA1354348D3792 /* RootView.swift */; };
@@ -24,6 +25,7 @@
 		6FAAE10B5C60E8FE8408077D /* PhoneFrameDetectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC0F829C74E4041DEF54CEA /* PhoneFrameDetectorTests.swift */; };
 		879AD0D3149BDD04C53E4C14 /* ProcessingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E225B20B3E9CA18F8C390E /* ProcessingView.swift */; };
 		8DB087BF36BB6BFBF999C6C6 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375C31F08CAABB922E4D3ACB /* ResultView.swift */; };
+		97BB555DC8435CE9B287C2E7 /* ImageLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35061E706B733785F6F674B /* ImageLayoutTests.swift */; };
 		A3C488EEBC1ADFB428291412 /* PhoneFrameDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019DA4C1DFB5B980295ABB7C /* PhoneFrameDetector.swift */; };
 		A470529B55948F6CC24BF5DE /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4AF316094A5EF79994ECC0 /* AppColor.swift */; };
 		CAB2626DB09191E9558098F1 /* SubjectSegmenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B3A939D1064249BF0CCFD2 /* SubjectSegmenter.swift */; };
@@ -52,7 +54,7 @@
 		08FDEBA9FADB92CFEC4AEEB7 /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
 		16C250DC4DB379361E15B302 /* CameraPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPicker.swift; sourceTree = "<group>"; };
 		1A6C7418DBDF242E568F1560 /* phone-in-flight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone-in-flight.png"; sourceTree = "<group>"; };
-		1CA6A5802CCD58A7B0C91491 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		1CA6A5802CCD58A7B0C91491 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		1DFC3213B7CCCD1764749F27 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		2C729F71E3302D576A16C7DE /* CreationFlowViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationFlowViewModelTests.swift; sourceTree = "<group>"; };
 		2D275AB179A972BC49DEEAA0 /* phone-tilted-landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone-tilted-landscape.png"; sourceTree = "<group>"; };
@@ -61,7 +63,7 @@
 		375C31F08CAABB922E4D3ACB /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		59DC39539F3A374B3C79AB77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		694CF19DC41FFFC42AB3EBFD /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
-		6FDF550FCD7C2A24A839D77C /* Peekpop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Peekpop.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FDF550FCD7C2A24A839D77C /* Peekpop.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Peekpop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70AE0C0898AECE032E0DD4D8 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		718E5D54581074BFE3565783 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		74B3A939D1064249BF0CCFD2 /* SubjectSegmenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectSegmenter.swift; sourceTree = "<group>"; };
@@ -69,11 +71,13 @@
 		963F0E2DD7F6B4D09759EEBD /* phone-recording.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone-recording.png"; sourceTree = "<group>"; };
 		A0FA3DDF0E31C7E005F4D1C2 /* SubjectSegmenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectSegmenterTests.swift; sourceTree = "<group>"; };
 		B80FE257381DF40A4D3923B1 /* BoundaryConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundaryConfirmView.swift; sourceTree = "<group>"; };
+		BD96DEF1B85BF3A54F7B5C29 /* ImageLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLayout.swift; sourceTree = "<group>"; };
 		BE4E7D467193401E59F7433C /* ScreenQuad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenQuad.swift; sourceTree = "<group>"; };
 		BFC0F829C74E4041DEF54CEA /* PhoneFrameDetectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneFrameDetectorTests.swift; sourceTree = "<group>"; };
 		CC4AF316094A5EF79994ECC0 /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 		CF51204F66CC9191DA531E94 /* PeekpopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeekpopApp.swift; sourceTree = "<group>"; };
 		D089CB17A644411793C80397 /* CreationFlowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationFlowViewModel.swift; sourceTree = "<group>"; };
+		D35061E706B733785F6F674B /* ImageLayoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLayoutTests.swift; sourceTree = "<group>"; };
 		F258C3042EC2AAA7804CA183 /* PopOutCompositor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOutCompositor.swift; sourceTree = "<group>"; };
 		F6A84459A2BA1354348D3792 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		F8CE532DCABF989802234E4D /* ScreenQuadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenQuadTests.swift; sourceTree = "<group>"; };
@@ -94,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				2C729F71E3302D576A16C7DE /* CreationFlowViewModelTests.swift */,
+				D35061E706B733785F6F674B /* ImageLayoutTests.swift */,
 				BFC0F829C74E4041DEF54CEA /* PhoneFrameDetectorTests.swift */,
 				362F84BFAF9D42B322D7C440 /* PopOutCompositorTests.swift */,
 				F8CE532DCABF989802234E4D /* ScreenQuadTests.swift */,
@@ -165,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				CC4AF316094A5EF79994ECC0 /* AppColor.swift */,
+				BD96DEF1B85BF3A54F7B5C29 /* ImageLayout.swift */,
 				08FDEBA9FADB92CFEC4AEEB7 /* Screen.swift */,
 				BE4E7D467193401E59F7433C /* ScreenQuad.swift */,
 			);
@@ -228,6 +234,8 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+				};
 			};
 			buildConfigurationList = 262F31C8355FE2A973DDB191 /* Build configuration list for PBXProject "Peekpop" */;
 			developmentRegion = en;
@@ -282,6 +290,7 @@
 				D94B23C6C1BA2A1E618D767B /* CameraPicker.swift in Sources */,
 				4337E5FC013D0400DCD2D8B8 /* CreationFlowViewModel.swift in Sources */,
 				ECE7260A94FB8950DB293166 /* ErrorView.swift in Sources */,
+				1C192837BD5120CA8B5C2D23 /* ImageLayout.swift in Sources */,
 				CEDFCD4BAE5AF5F058E482D1 /* MainView.swift in Sources */,
 				63CB6305E04577C01306EFD9 /* PeekpopApp.swift in Sources */,
 				A3C488EEBC1ADFB428291412 /* PhoneFrameDetector.swift in Sources */,
@@ -301,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1825404B8066AFCDCCB016B7 /* CreationFlowViewModelTests.swift in Sources */,
+				97BB555DC8435CE9B287C2E7 /* ImageLayoutTests.swift in Sources */,
 				6FAAE10B5C60E8FE8408077D /* PhoneFrameDetectorTests.swift in Sources */,
 				006A4BDA277CCE7D8CAA6238 /* PopOutCompositorTests.swift in Sources */,
 				EA479C1966516D18967B11FF /* ScreenQuadTests.swift in Sources */,
@@ -324,7 +334,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = MLRTHHUP3R;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = Peekpop/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -361,7 +370,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = MLRTHHUP3R;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = Peekpop/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;

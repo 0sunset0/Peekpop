@@ -23,6 +23,7 @@
     - 경계값 축: 합성 이미지(완전 투명 → 커버리지 0%, 완전 불투명 → 커버리지 100%, 절반만 칠함 → 커버리지 ~50%)로 `isPlausible`의 임계값 로직 자체를 검증 — 0%/100%는 degenerate(false), 50%는 plausible(true), 3케이스.
   - `PopOutCompositor` — 시각적 배치 품질(자연스러워 보이는가)은 주관적 판정이라 자동화하지 않는다(골든이미지 diff는 유지비만 높고 깨지기 쉬움 — phase 11 실기기 QA로 검증). 다만 회전각 계산은 순수 삼각함수라 결정적이므로 테스트한다: (a) 합성 결과가 base 이미지와 동일한 크기로 나오는지 스모크 테스트 1케이스, (b) 알려진 4점 좌표(수직 사각형, 기울어진 사각형)로 회전각 계산 헬퍼가 기대값을 반환하는지 2케이스 — 총 3케이스
   - `CreationFlowViewModel` — 화면 전이 로직: 메인에서 사진 선택 트리거, 사진 선택 후 화면경계확인 전이, 선택된 사진 없이 확정 시 에러 전이, **degenerate 마스크 시 에러 전이(브러시 화면 없음, v0)**, 에러 시 피커 자동 표시, **홈으로(X)는 메인에 머무르고 피커 자동 표시 안 함**, **경계확인으로 돌아가기(`<`)는 selectedImage를 유지한 채 화면경계확인으로 전이**, 7케이스
+  - `ImageLayout` — `.scaledToFit()` 레터박싱 계산: 이미지·컨테이너 비율이 같으면 꽉 채우는지, 이미지가 더 넓으면 위아래로/더 좁으면 좌우로 레터박싱되는지, 3케이스
 - **파일 위치**: `PeekpopTests/<TypeName>Tests.swift` — 1파일 1타입. `@testable import Peekpop`으로 internal 심볼에 접근한다.
 - **CI 실행**: `xcodebuild -project Peekpop.xcodeproj -scheme Peekpop test -destination "platform=iOS Simulator,name=<iPhone ...>"`. destination은 `xcrun simctl list devices available` 결과에서 동적으로 고르거나, 없으면 `iPhone 17`로 폴백.
 - **외부 의존 금지**: Quick/Nimble 등 테스트 보조 라이브러리를 도입하지 않는다. XCTest 내장만 사용한다 (`docs/ade.md`의 "간결하고 빠르게" 원칙과 일치).

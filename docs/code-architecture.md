@@ -12,6 +12,9 @@ Flow/      CreationFlowViewModel — 단일 ObservableObject. 흐름 전체 상�
 Services/  PhoneFrameDetector, SubjectSegmenter, PopOutCompositor — Vision/CoreGraphics
            래퍼. 프로토콜 추상화·DI 없이 concrete 타입 (테스트도 실제 이미지로 돌리므로
            Vision을 mock할 이유가 없음).
+Shared/    ScreenQuad, Screen, AppColor(색상 토큰) 외에 `ImageLayout` — `.scaledToFit()`의
+           레터박싱을 계산하는 순수 함수. BoundaryConfirmView(사각형 오버레이 좌표)와
+           ResultView(제스처 픽셀 변환)가 공유한다.
 ```
 
 ## 화면 상태
