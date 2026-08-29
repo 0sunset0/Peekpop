@@ -7,7 +7,7 @@ import Photos
 /// 포함시킴, docs/ade.md 참고).
 struct ResultView: View {
     @ObservedObject var viewModel: CreationFlowViewModel
-    @State private var justSaved = false
+    @State private var showSavedToast = false
     @State private var shareURL: URL?
 
     /// 직전 제스처들이 확정(commit)된 누적값.
@@ -20,6 +20,28 @@ struct ResultView: View {
     @State private var liveRotationDelta: Angle = .zero
 
     var body: some View {
+        ZStack {
+            content
+            if showSavedToast {
+                VStack {
+                    Spacer()
+                    Text("저장되었어요")
+                        .font(.subheadline)
+                        .foregroundStyle(.white)
+                        .padding(.horizontal, 20)
+                        .padding(.vertical, 12)
+                        .background(Color.black.opacity(0.85))
+                        .clipShape(Capsule())
+                        .padding(.bottom, 120)
+                }
+                .transition(.opacity)
+                .allowsHitTesting(false)
+            }
+        }
+        .animation(.easeInOut(duration: 0.2), value: showSavedToast)
+    }
+
+    private var content: some View {
         VStack(spacing: 24) {
             if let result = viewModel.resultImage {
                 GeometryReader { geo in
@@ -84,7 +106,7 @@ struct ResultView: View {
                 Button {
                     Task { await save() }
                 } label: {
-                    Image(systemName: justSaved ? "checkmark" : "square.and.arrow.down")
+                    Image(systemName: "square.and.arrow.down")
                 }
                 .buttonStyle(PrimaryButtonStyle())
 
@@ -155,9 +177,9 @@ struct ResultView: View {
             try await PHPhotoLibrary.shared().performChanges {
                 PHAssetChangeRequest.creationRequestForAsset(from: uiImage)
             }
-            justSaved = true
+            showSavedToast = true
             try? await Task.sleep(nanoseconds: 1_500_000_000)
-            justSaved = false
+            showSavedToast = false
         } catch {
             viewModel.screen = .error("저장하지 못했어요. 다시 시도해주세요.")
         }
