@@ -9,6 +9,12 @@ final class CreationFlowViewModel: ObservableObject {
     @Published var selectedImage: CGImage?
     @Published var quad: ScreenQuad = .defaultRect
     @Published var resultImage: CGImage?
+    /// 자동 배치 후 결과 화면에서 사용자가 손가락으로 조정한 값 — PopOutCompositor에
+    /// 그대로 전달돼 재합성에 쓰인다. 1.0/.zero면 자동 배치 그대로.
+    @Published var adjustScale: CGFloat = 1.0
+    @Published var adjustOffset: CGPoint = .zero
+
+    private var maskedCutout: CGImage?
 
     private let frameDetector: PhoneFrameDetector
     private let segmenter: SubjectSegmenter
@@ -53,6 +59,9 @@ final class CreationFlowViewModel: ObservableObject {
             screen = .error("튀어나올 부분을 찾지 못했어요. 다른 사진으로 다시 시도해주세요.")
             return
         }
+        maskedCutout = mask
+        adjustScale = 1.0
+        adjustOffset = .zero
         guard let composed = compositor.compose(baseImage: image, quad: confirmedQuad, cutout: mask) else {
             screen = .error("이미지를 합성하지 못했어요.")
             return
@@ -61,9 +70,25 @@ final class CreationFlowViewModel: ObservableObject {
         screen = .result
     }
 
+    /// 결과 화면에서 드래그/핀치로 위치·크기를 조정할 때마다 호출한다. 조정값을 반영해
+    /// 즉시 재합성한다 — 원본 사진/사각형/마스크는 그대로 두고 배치만 다시 계산하므로
+    /// Vision을 다시 호출하지 않는다(빠름).
+    func adjustmentChanged(scale: CGFloat, offset: CGPoint) {
+        adjustScale = scale
+        adjustOffset = offset
+        guard let image = selectedImage, let cutout = maskedCutout else { return }
+        if let composed = compositor.compose(
+            baseImage: image, quad: quad, cutout: cutout,
+            extraScale: scale, extraOffset: offset
+        ) {
+            resultImage = composed
+        }
+    }
+
     func retryFromError() {
         selectedImage = nil
         resultImage = nil
+        maskedCutout = nil
         screen = .main
         isPickerPresented = true
     }
@@ -71,6 +96,7 @@ final class CreationFlowViewModel: ObservableObject {
     func startOver() {
         selectedImage = nil
         resultImage = nil
+        maskedCutout = nil
         screen = .main
         isPickerPresented = true
     }

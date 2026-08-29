@@ -32,11 +32,15 @@ Vision 호출(`VNImageRequestHandler.perform`, 동기 API)은 `Task { }` 안에�
 
 ## PopOutCompositor 배치 로직
 
-1. 사용자가 지정한 4점에서 사각형 회전각을 계산한다 (예: 아래쪽 두 점을 잇는 선의 기울기).
-2. 컷아웃을 그 각도로 회전시킨 뒤, 사각형 아래쪽 변 밖으로 확대·오프셋 배치한다.
-3. 그림자는 배치 방향에 맞춰 오프셋을 준다.
+1. `SubjectSegmenter`는 `croppedToInstancesExtent: false`로 마스크를 만든다 — 크롭 영역과 같은 크기, 피사체는 원래 있던 자리 그대로, 나머지는 투명. 위치 정보를 지키기 위함(스파이크와 동일 설정, docs/ade.md).
+2. `PopOutCompositor.boundingRect(for:imageWidth:imageHeight:)`로 원본 사진 속 크롭 영역(=quad를 감싸는 축 정렬 사각형)을 계산한다 — `CreationFlowViewModel`이 크롭할 때도 같은 함수를 재사용해 둘이 어긋나지 않게 한다.
+3. 그 크롭 영역의 **중심**을 기준으로 컷아웃을 확대한다 — 피사체가 크롭 안 어디에 있었든 원래 자리를 덮으며 사방으로 커진다("항상 아래쪽에만 나온다"던 이전 설계의 버그를 고침).
+4. 사용자가 지정한 4점에서 계산한 사각형 회전각만큼 그 중심을 기준으로 회전시켜 기울어진 사진에서도 자연스럽게 만든다.
+5. 그림자를 적용한다.
 
-정확한 확대 배율·오프셋 비율은 스파이크에서 고정값으로 대략 검증한 수준이라, 구현 중 여러 샘플로 미세 조정이 필요하다.
+`PopOutCompositor.compose(baseImage:quad:cutout:extraScale:extraOffset:)`의 `extraScale`/`extraOffset`은 결과 화면에서 사용자가 드래그/핀치로 조정한 값이다(기본 1.0/.zero = 조정 없음) — Vision을 다시 부르지 않고 같은 마스크로 즉시 재합성한다. `CreationFlowViewModel.adjustmentChanged(scale:offset:)`가 이 재합성을 트리거한다.
+
+정확한 기본 확대 배율(`enlargeScale`)은 스파이크·실기기 QA로 튜닝한 값이라, 다양한 사진으로 추가 검증 여지가 있다 — 다만 이제 사용자가 결과 화면에서 직접 보정할 수 있어 완벽한 자동값이 아니어도 된다.
 
 ## 에러 처리
 

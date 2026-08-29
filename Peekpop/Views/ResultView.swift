@@ -1,20 +1,69 @@
 import SwiftUI
 import Photos
 
+/// 결과 화면. 자동 배치된 결과를 보여주고, 저장 전에 드래그(이동)/핀치(크기)로 손보게
+/// 해준다(docs/flow.md "5. 결과" — tech-critic-lead가 처음엔 "더 싼 대안(알고리즘 튜닝)을
+/// 먼저 시도"하라며 거부했지만, 알고리즘을 고친 뒤에도 실기기 사용자가 재요청해 v0에
+/// 포함시킴, docs/ade.md 참고).
 struct ResultView: View {
     @ObservedObject var viewModel: CreationFlowViewModel
     @State private var justSaved = false
     @State private var shareURL: URL?
 
+    /// 직전 제스처들이 확정(commit)된 누적값.
+    @State private var committedScale: CGFloat = 1.0
+    @State private var committedOffset: CGPoint = .zero
+    /// 지금 진행 중인 제스처의 델타(제스처가 끝나면 committed로 합쳐지고 0으로 리셋).
+    @State private var liveScaleDelta: CGFloat = 1.0
+    @State private var liveOffsetDelta: CGSize = .zero
+
     var body: some View {
         VStack(spacing: 24) {
             if let result = viewModel.resultImage {
-                Image(decorative: result, scale: 1)
-                    .resizable()
-                    .scaledToFit()
-                    .clipShape(RoundedRectangle(cornerRadius: 12))
-                    .padding()
+                GeometryReader { geo in
+                    let imageSize = CGSize(width: result.width, height: result.height)
+                    let displayed = Self.displayedSize(containerSize: geo.size, imageSize: imageSize)
+                    let pixelsPerPoint = imageSize.width > 0 ? CGFloat(result.width) / max(displayed.width, 1) : 1
+
+                    Image(decorative: result, scale: 1)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: geo.size.width, height: geo.size.height)
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                        .gesture(
+                            SimultaneousGesture(
+                                DragGesture()
+                                    .onChanged { value in
+                                        liveOffsetDelta = value.translation
+                                        applyAdjustment(pixelsPerPoint: pixelsPerPoint)
+                                    }
+                                    .onEnded { value in
+                                        committedOffset.x += value.translation.width * pixelsPerPoint
+                                        committedOffset.y += value.translation.height * pixelsPerPoint
+                                        liveOffsetDelta = .zero
+                                        applyAdjustment(pixelsPerPoint: pixelsPerPoint)
+                                        prepareShareURL()
+                                    },
+                                MagnificationGesture()
+                                    .onChanged { value in
+                                        liveScaleDelta = value
+                                        applyAdjustment(pixelsPerPoint: pixelsPerPoint)
+                                    }
+                                    .onEnded { value in
+                                        committedScale *= value
+                                        liveScaleDelta = 1.0
+                                        applyAdjustment(pixelsPerPoint: pixelsPerPoint)
+                                        prepareShareURL()
+                                    }
+                            )
+                        )
+                }
+                .padding()
             }
+
+            Text("드래그로 위치, 두 손가락으로 크기를 조정할 수 있어요")
+                .font(.footnote)
+                .foregroundStyle(.white.opacity(0.7))
 
             HStack(spacing: 16) {
                 Button {
@@ -40,6 +89,31 @@ struct ResultView: View {
         }
         .background(Color.black.ignoresSafeArea())
         .task { prepareShareURL() }
+    }
+
+    private func applyAdjustment(pixelsPerPoint: CGFloat) {
+        let scale = committedScale * liveScaleDelta
+        let offset = CGPoint(
+            x: committedOffset.x + liveOffsetDelta.width * pixelsPerPoint,
+            y: committedOffset.y + liveOffsetDelta.height * pixelsPerPoint
+        )
+        viewModel.adjustmentChanged(scale: scale, offset: offset)
+    }
+
+    /// `.scaledToFit()`이 `imageSize`를 `containerSize` 안에 어떤 크기로 그리는지 계산한다.
+    private static func displayedSize(containerSize: CGSize, imageSize: CGSize) -> CGSize {
+        guard imageSize.width > 0, imageSize.height > 0, containerSize.width > 0, containerSize.height > 0 else {
+            return containerSize
+        }
+        let containerAspect = containerSize.width / containerSize.height
+        let imageAspect = imageSize.width / imageSize.height
+        if imageAspect > containerAspect {
+            let w = containerSize.width
+            return CGSize(width: w, height: w / imageAspect)
+        } else {
+            let h = containerSize.height
+            return CGSize(width: h * imageAspect, height: h)
+        }
     }
 
     private func prepareShareURL() {

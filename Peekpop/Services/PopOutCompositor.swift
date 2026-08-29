@@ -7,6 +7,11 @@ import CoreGraphics
 /// 피사체가 원본 피사체를 가리며 튀어나오는" 효과, 사용자 피드백 반영). 배치는 사용자가
 /// 지정한 사각형의 기울기를 반영한다 — 고정 비율 배치는 폰이 기울어진 사진에서
 /// 부자연스러웠다 (docs/ade.md).
+///
+/// `extraScale`/`extraOffset`는 결과 화면에서 사용자가 손가락으로 직접 조정한 값이다
+/// (docs/flow.md "5. 결과" — 저장 전 위치/크기 조정, tech-critic-lead의 1차 거부를
+/// 사용자가 실기기 피드백 근거로 오버라이드해 v0에 다시 포함시킴). 기본값(1.0, .zero)은
+/// 자동 배치 그대로를 뜻한다.
 struct PopOutCompositor {
     /// 확대된 피사체의 렌더링 크기 — 크롭(=cutout) 크기의 몇 배로 키울지. 크롭 중심을
     /// 기준으로 사방으로 커지기 때문에, 피사체가 크롭 안 어디에 있었든 자연스럽게 화면
@@ -30,7 +35,14 @@ struct PopOutCompositor {
         return CGRect(x: minX, y: minY, width: maxX - minX, height: maxY - minY)
     }
 
-    func compose(baseImage: CGImage, quad: ScreenQuad, cutout: CGImage) -> CGImage? {
+    /// - Parameters:
+    ///   - extraScale: 자동 배치 크기에 곱해지는 사용자 조정 배율. 1.0 = 조정 없음.
+    ///   - extraOffset: 크롭 중심 기준 사용자 조정 이동량, 이미지 픽셀 단위, top-down
+    ///     좌표계(x: 오른쪽+, y: 아래쪽+). `.zero` = 조정 없음.
+    func compose(
+        baseImage: CGImage, quad: ScreenQuad, cutout: CGImage,
+        extraScale: CGFloat = 1.0, extraOffset: CGPoint = .zero
+    ) -> CGImage? {
         let outW = baseImage.width, outH = baseImage.height
         guard let ctx = CGContext(
             data: nil, width: outW, height: outH, bitsPerComponent: 8, bytesPerRow: 0,
@@ -47,14 +59,15 @@ struct PopOutCompositor {
         // in the base photo — the enlargement grows outward from its center, so
         // the subject stays covering its own original spot as it pops out.
         let crop = Self.boundingRect(for: quad, imageWidth: outW, imageHeight: outH)
-        let cropCenter = CGPoint(x: crop.midX, y: crop.midY)
+        let center = CGPoint(x: crop.midX + extraOffset.x, y: crop.midY + extraOffset.y)
 
-        let cutoutW = CGFloat(cutout.width) * enlargeScale
-        let cutoutH = CGFloat(cutout.height) * enlargeScale
+        let totalScale = enlargeScale * extraScale
+        let cutoutW = CGFloat(cutout.width) * totalScale
+        let cutoutH = CGFloat(cutout.height) * totalScale
 
         ctx.saveGState()
-        ctx.setShadow(offset: CGSize(width: 0, height: -14), blur: 24, color: CGColor(red: 0, green: 0, blue: 0, alpha: 0.5))
-        ctx.translateBy(x: cropCenter.x, y: CGFloat(outH) - cropCenter.y)
+        ctx.setShadow(offset: CGSize(width: 0, height: -22), blur: 40, color: CGColor(red: 0, green: 0, blue: 0, alpha: 0.7))
+        ctx.translateBy(x: center.x, y: CGFloat(outH) - center.y)
         ctx.rotate(by: -angle)
         let drawRect = CGRect(x: -cutoutW / 2, y: -cutoutH / 2, width: cutoutW, height: cutoutH)
         ctx.draw(cutout, in: drawRect)
