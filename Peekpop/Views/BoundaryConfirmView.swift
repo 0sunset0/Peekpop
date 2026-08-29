@@ -20,9 +20,12 @@ struct BoundaryConfirmView: View {
 
                 VStack {
                     HStack {
-                        Button("뒤로") { viewModel.startOver() }
-                            .foregroundStyle(.white)
-                            .padding()
+                        Button { viewModel.startOver() } label: {
+                            Image(systemName: "chevron.left")
+                                .font(.system(size: 20, weight: .semibold))
+                        }
+                        .foregroundStyle(.white)
+                        .padding()
                         Spacer()
                     }
                     Spacer()
