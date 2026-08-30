@@ -9,11 +9,16 @@
 
 ## 스크린샷
 
-| 화면 | |
-|---|---|
-| **메인** — 사용 흐름을 3단계로 보여주는 예시 캐러셀 | <img src="docs/screenshots/main-1.png" width="180"> <img src="docs/screenshots/main-2.png" width="180"> <img src="docs/screenshots/main-3.png" width="180"> |
-| **화면 경계 확인** — 노란 점으로 폰 화면 테두리를 직접 맞춤 | <img src="docs/screenshots/boundary-confirm.png" width="180"> |
-| **결과** — 저장 전에 드래그·핀치·회전으로 배치 직접 조정 | <img src="docs/screenshots/result.png" width="180"> |
+<p align="center">
+  <img src="docs/screenshots/main-1.png" width="180">
+  <img src="docs/screenshots/main-2.png" width="180">
+  <img src="docs/screenshots/main-3.png" width="180">
+  <img src="docs/screenshots/boundary-confirm.png" width="180">
+  <img src="docs/screenshots/result.png" width="180">
+</p>
+<p align="center">
+  <sub>메인(예시 캐러셀 1~3) · 화면 경계 확인 · 결과</sub>
+</p>
 
 이 문서는 앱 자체보다, **이 저장소를 만드는 데 쓴 커스텀 Claude Code 하네스**를 설명하는 데 집중한다.
 
