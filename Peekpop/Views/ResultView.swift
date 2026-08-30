@@ -149,7 +149,16 @@ struct ResultView: View {
                 Button {
                     Task { await save() }
                 } label: {
-                    Label("저장", systemImage: "square.and.arrow.down")
+                    Label {
+                        Text("저장")
+                    } icon: {
+                        // "square.and.arrow.down" 아이콘은 아래로 향한 화살표라 시각적
+                        // 무게중심이 실제 바운딩 박스보다 낮다 — 텍스트와 나란히 두면
+                        // 수학적으로는 가운데 정렬이어도 살짝 아래로 처져 보여서, 1pt
+                        // 위로 올려 광학적으로 정렬되게 보정한다(디자인 리뷰, 2026-08-30).
+                        Image(systemName: "square.and.arrow.down")
+                            .offset(y: -1)
+                    }
                 }
                 .buttonStyle(PrimaryButtonStyle())
 
