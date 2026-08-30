@@ -149,24 +149,19 @@ struct ResultView: View {
                 Button {
                     Task { await save() }
                 } label: {
-                    Label {
-                        Text("저장")
-                    } icon: {
-                        // "square.and.arrow.down" 아이콘은 아래로 향한 화살표라 시각적
-                        // 무게중심이 실제 바운딩 박스보다 낮다 — 텍스트와 나란히 두면
-                        // 수학적으로는 가운데 정렬이어도 살짝 아래로 처져 보여서, 1pt
-                        // 위로 올려 광학적으로 정렬되게 보정한다(디자인 리뷰, 2026-08-30).
-                        Image(systemName: "square.and.arrow.down")
-                            .offset(y: -2)
-                    }
+                    Label("저장", systemImage: "square.and.arrow.down")
                 }
                 .buttonStyle(PrimaryButtonStyle())
 
                 if let shareURL {
                     ShareLink(item: shareURL) {
+                        // "square.and.arrow.up"이 원 안에서 살짝 낮아 보여서 위로
+                        // 보정한다(디자인 리뷰, 2026-08-30 — 저장 버튼과 헷갈려서
+                        // 한 번 되돌렸다가 다시 적용).
                         Image(systemName: "square.and.arrow.up")
                             .font(.system(size: 18, weight: .medium))
                             .foregroundStyle(.white)
+                            .offset(y: -1)
                             .frame(width: 44, height: 44)
                             .background(Color.white.opacity(0.15))
                             .clipShape(Circle())
