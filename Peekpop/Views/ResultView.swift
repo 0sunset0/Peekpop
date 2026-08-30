@@ -18,6 +18,13 @@ struct ResultView: View {
     @State private var liveScaleDelta: CGFloat = 1.0
     @State private var liveOffsetDelta: CGSize = .zero
     @State private var liveRotationDelta: Angle = .zero
+    /// 마지막으로 실제 재합성(`compositor.compose`)을 실행한 시각. `PopOutCompositor.compose`가
+    /// 원본 해상도로 매번 새로 그리는 무거운 동기 작업이라, 제스처 중(`.onChanged`)에는 이
+    /// 간격보다 자주 재합성하지 않는다 — 안 그러면 빠르게 드래그할 때 렌더링 작업이 밀려서
+    /// 터치 반응이 끊기는 문제가 있었다(사용자 리포트, 2026-08-30). 제스처가 끝날 때
+    /// (`.onEnded`)는 `force: true`로 항상 최신 값을 반영한다.
+    @State private var lastLiveComposeTime: Date = .distantPast
+    private let liveComposeInterval: TimeInterval = 1.0 / 30.0
 
     var body: some View {
         ZStack {
@@ -95,7 +102,7 @@ struct ResultView: View {
                                             committedOffset.x += value.translation.width * pixelsPerPoint
                                             committedOffset.y += value.translation.height * pixelsPerPoint
                                             liveOffsetDelta = .zero
-                                            applyAdjustment(pixelsPerPoint: pixelsPerPoint)
+                                            applyAdjustment(pixelsPerPoint: pixelsPerPoint, force: true)
                                             prepareShareURL()
                                         },
                                     MagnificationGesture()
@@ -106,7 +113,7 @@ struct ResultView: View {
                                         .onEnded { value in
                                             committedScale *= value
                                             liveScaleDelta = 1.0
-                                            applyAdjustment(pixelsPerPoint: pixelsPerPoint)
+                                            applyAdjustment(pixelsPerPoint: pixelsPerPoint, force: true)
                                             prepareShareURL()
                                         }
                                 ),
@@ -118,7 +125,7 @@ struct ResultView: View {
                                     .onEnded { value in
                                         committedRotation += value
                                         liveRotationDelta = .zero
-                                        applyAdjustment(pixelsPerPoint: pixelsPerPoint)
+                                        applyAdjustment(pixelsPerPoint: pixelsPerPoint, force: true)
                                         prepareShareURL()
                                     }
                             )
@@ -175,7 +182,13 @@ struct ResultView: View {
         .task { prepareShareURL() }
     }
 
-    private func applyAdjustment(pixelsPerPoint: CGFloat) {
+    private func applyAdjustment(pixelsPerPoint: CGFloat, force: Bool = false) {
+        if !force {
+            let now = Date()
+            guard now.timeIntervalSince(lastLiveComposeTime) >= liveComposeInterval else { return }
+        }
+        lastLiveComposeTime = Date()
+
         let scale = committedScale * liveScaleDelta
         let offset = CGPoint(
             x: committedOffset.x + liveOffsetDelta.width * pixelsPerPoint,
