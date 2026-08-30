@@ -57,6 +57,13 @@ struct MainView: View {
             }
             .buttonStyle(PrimaryButtonStyle())
             .padding(.horizontal, 24)
+
+            // App Store 심사 요건(가이드라인 5.1.1(i)) — 개인정보처리방침 링크는
+            // App Store Connect 메타데이터뿐 아니라 앱 안에서도 접근 가능해야 한다.
+            // 별도 설정 화면이 없는 앱이라 메인 화면 하단에 작은 텍스트 링크로 둔다.
+            Link("개인정보처리방침", destination: URL(string: "https://0sunset0.notion.site/3cb01ce28fac8027a6fdcc1b97ebc94a")!)
+                .font(.footnote)
+                .foregroundStyle(.white.opacity(0.5))
         }
         .padding()
         .background(Color.black.ignoresSafeArea())

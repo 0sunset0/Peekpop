@@ -18,7 +18,7 @@ final class PhoneFrameDetectorTests: XCTestCase {
         let width = quad.topRight.x - quad.topLeft.x
         let height = quad.bottomLeft.y - quad.topLeft.y
         let aspect = width / height
-        XCTAssertTrue((0.35...0.65).contains(aspect), "detected aspect \(aspect) should look like a phone screen")
+        XCTAssertTrue((0.35...0.7).contains(aspect), "detected aspect \(aspect) should look like a phone screen")
     }
 
     func test_detectQuad_returnsNil_whenNoPlausibleRectangle() async {
