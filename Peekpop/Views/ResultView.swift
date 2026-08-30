@@ -157,7 +157,7 @@ struct ResultView: View {
                         // 수학적으로는 가운데 정렬이어도 살짝 아래로 처져 보여서, 1pt
                         // 위로 올려 광학적으로 정렬되게 보정한다(디자인 리뷰, 2026-08-30).
                         Image(systemName: "square.and.arrow.down")
-                            .offset(y: -1)
+                            .offset(y: -2)
                     }
                 }
                 .buttonStyle(PrimaryButtonStyle())
