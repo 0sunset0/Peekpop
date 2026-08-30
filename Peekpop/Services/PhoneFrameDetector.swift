@@ -5,7 +5,10 @@ import CoreGraphics
 /// 않는다 — 사용자가 항상 확인/조정하는 초안(프리필) 용도다 (docs/ade.md: 신뢰도 1.0으로
 /// 확신에 찬 오탐이 나온 사례 있음).
 struct PhoneFrameDetector {
-    private static let plausibleAspectRange: ClosedRange<CGFloat> = 0.4...0.6
+    // 0.6이던 상한을 0.7로 넓혔다 — 실제 사진 두 장(사용자 제공 예시 사진 0.69, AI 생성
+    // phone-front-facing 픽스처 0.65)이 다 눈으로는 명백히 폰 화면인데 이 범위를 살짝
+    // 벗어나 자동 검출이 거부됐다(디자인 리뷰/테스트 수정, 2026-08-30).
+    private static let plausibleAspectRange: ClosedRange<CGFloat> = 0.4...0.7
 
     func detectQuad(in image: CGImage) async -> ScreenQuad? {
         let request = VNDetectRectanglesRequest()
