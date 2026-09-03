@@ -116,6 +116,11 @@ macOS 스파이크 중 `NSImage.cgImage(forProposedRect:)`가 일부 파일에�
 
 **2차 (사용자가 수동 조정 UI를 요청했으나 tech-critic-lead가 거부, 대신 알고리즘 개선)**: 사용자가 "피사체 크기·위치를 직접 조정하는 UI"를 요청했지만, tech-critic-lead가 "더 싼 대안(알고리즘 튜닝)을 시도 안 했다"는 근거로 거부했다. 실제로 원인을 다시 보니: 고정 배율(`popOutScale`)이 **컷아웃의 원본 픽셀 크기**를 기준으로 곱해지고 있었는데, 이 픽셀 크기는 사진 해상도·Vision이 얼마나 타이트하게 크롭했는지에 따라 사진마다 들쭉날쭉해서, 같은 배율이어도 "폰 대비 얼마나 커 보이는지"가 사진마다 달라지는 게 진짜 문제였다. → **`targetWidthRatio`(1.15)로 전환**: 컷아웃 픽셀 크기가 아니라 **사용자가 지정한 화면 사각형(quad)의 실제 폭**을 기준으로 목표 폭을 정하고(화면 폭의 1.15배), 거기 맞춰 스케일을 역산한다. 이러면 사진 해상도나 크롭 타이트함과 무관하게 "폰 화면보다 얼마나 커 보이는지"가 항상 일정해진다. `PopOutCompositor.swift` 참고. 유닛 테스트는 이 상수/로직 변경과 무관해(스모크·회전각만 검증) 그대로 통과.
 
+## PhotoPicker/CameraPicker의 `UIImage.cgImage` 직접 사용 → 세로 사진이 가로로 보이는 버그 (GitHub #8, 2026-09-03)
+"세로 사진을 넣으면 자꾸 가로로 돌아간다"는 사용자 리포트(경계확인 화면 스크린샷 첨부, GitHub #8)로 발견. 앞서 "이미지 방향 처리 주의" 항목에 "iOS의 `UIImage` 자체는 방향을 안정적으로 처리한다"고 적어뒀는데, 이건 `UIImageView`/`Image(uiImage:)`로 UIImage를 그대로 표시할 때만 맞는 얘기였다 — `PhotoPicker.swift`와 `CameraPicker.swift`가 둘 다 `uiImage.cgImage`로 원본 CGImage를 바로 꺼내 쓰고 있었는데, `.cgImage`는 카메라 센서가 기록한 raw 픽셀 버퍼 그대로라 `imageOrientation`을 전혀 반영하지 않는다. 세로로 찍은 사진 대부분은 센서 버퍼 자체가 가로로 저장되고 `.right`/`.left` 태그로만 "회전해서 보여줘"라고 표시돼 있어서, `.cgImage`를 그대로 꺼내는 순간 그 태그가 사라지고, 이후 파이프라인(BoundaryConfirmView, PopOutCompositor 등 — 전부 orientation을 모름) 전체가 가로 사진으로 취급하게 된다.
+
+`Peekpop/Shared/UIImage+Oriented.swift`에 `UIImage.orientedCGImage` 추가 — `UIGraphicsImageRenderer`로 다시 그려서(이 경로는 `imageOrientation`을 반영함) upright CGImage를 만든다. 구현 중 `UIGraphicsImageRenderer(size:)`가 기본으로 현재 기기 화면 배율(시뮬레이터에서 3x)을 써서, 그대로 두면 사진 픽셀 크기가 조용히 9배(가로세로 각 3배) 부풀려지는 걸 유닛 테스트로 잡아냈다 — `UIGraphicsImageRendererFormat.scale = 1`을 명시해서 원본 픽셀 크기를 유지하도록 고쳤다. `PhotoPicker`/`CameraPicker`의 `.cgImage` 두 곳을 `.orientedCGImage`로 교체.
+
 ## 미해결 / 다음 버전 과제
 - "마스크가 그럴싸함" 판정 임계값(커버리지 %, 화면 경계와의 겹침 정도)은 구현 중 튜닝 필요.
 - 배치는 상수 조정 + quad-상대 동적 스케일링까지 했지만, 실제 타겟 고객 노출 전까지는 "충분히 자연스러운가"를 더 검증할 필요가 있다 — 그래도 부족하면 자유 제스처보다 "프리셋 2~3개 중 탭 선택"이 더 싼 다음 단계 (tech-critic-lead 가이드).

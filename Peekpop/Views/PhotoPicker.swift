@@ -26,7 +26,7 @@ struct PhotoPicker: UIViewControllerRepresentable {
             picker.dismiss(animated: true)
             guard let provider = results.first?.itemProvider, provider.canLoadObject(ofClass: UIImage.self) else { return }
             provider.loadObject(ofClass: UIImage.self) { [onImagePicked] object, _ in
-                guard let uiImage = object as? UIImage, let cgImage = uiImage.cgImage else { return }
+                guard let uiImage = object as? UIImage, let cgImage = uiImage.orientedCGImage else { return }
                 DispatchQueue.main.async { onImagePicked(cgImage) }
             }
         }

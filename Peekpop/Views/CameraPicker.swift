@@ -22,7 +22,7 @@ struct CameraPicker: UIViewControllerRepresentable {
 
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
             picker.dismiss(animated: true)
-            guard let uiImage = info[.originalImage] as? UIImage, let cgImage = uiImage.cgImage else { return }
+            guard let uiImage = info[.originalImage] as? UIImage, let cgImage = uiImage.orientedCGImage else { return }
             onImagePicked(cgImage)
         }
 
