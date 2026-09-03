@@ -14,11 +14,13 @@
 		1C436E74AC2274543776BDCF /* BoundaryConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80FE257381DF40A4D3923B1 /* BoundaryConfirmView.swift */; };
 		242906E60524E06C7636CF1B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 1CA6A5802CCD58A7B0C91491 /* PrivacyInfo.xcprivacy */; };
 		2639D06DB7FE766DC87EA44B /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A84459A2BA1354348D3792 /* RootView.swift */; };
+		300D72307434BD73F6288BDB /* UIImage+Oriented.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72821667D5ECADFAAD944237 /* UIImage+Oriented.swift */; };
 		40E7614552313C1D46C2C170 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59DC39539F3A374B3C79AB77 /* Assets.xcassets */; };
 		4337E5FC013D0400DCD2D8B8 /* CreationFlowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D089CB17A644411793C80397 /* CreationFlowViewModel.swift */; };
 		47BA8FB25CD93B1877083EC1 /* phone-recording.png in Resources */ = {isa = PBXBuildFile; fileRef = 963F0E2DD7F6B4D09759EEBD /* phone-recording.png */; };
 		48E3CE752A82D49355237785 /* phone-tilted-landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D275AB179A972BC49DEEAA0 /* phone-tilted-landscape.png */; };
 		4B353E2A35C64758082B413A /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694CF19DC41FFFC42AB3EBFD /* PhotoPicker.swift */; };
+		58DC61A9F2AB070FA17F48A8 /* UIImageOrientedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECBE46B08AF80250BD5286C /* UIImageOrientedTests.swift */; };
 		61294BF907FF1D2AC5A3437B /* PopOutCompositor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F258C3042EC2AAA7804CA183 /* PopOutCompositor.swift */; };
 		63CB6305E04577C01306EFD9 /* PeekpopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF51204F66CC9191DA531E94 /* PeekpopApp.swift */; };
 		64DCAD6A3A18D10E606C4A5A /* phone-front-facing.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F2C8656E2D70BC2BBAA8E4E /* phone-front-facing.png */; };
@@ -63,9 +65,11 @@
 		375C31F08CAABB922E4D3ACB /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		59DC39539F3A374B3C79AB77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		694CF19DC41FFFC42AB3EBFD /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
+		6ECBE46B08AF80250BD5286C /* UIImageOrientedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageOrientedTests.swift; sourceTree = "<group>"; };
 		6FDF550FCD7C2A24A839D77C /* Peekpop.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Peekpop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70AE0C0898AECE032E0DD4D8 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		718E5D54581074BFE3565783 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		72821667D5ECADFAAD944237 /* UIImage+Oriented.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Oriented.swift"; sourceTree = "<group>"; };
 		74B3A939D1064249BF0CCFD2 /* SubjectSegmenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectSegmenter.swift; sourceTree = "<group>"; };
 		7F2C8656E2D70BC2BBAA8E4E /* phone-front-facing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone-front-facing.png"; sourceTree = "<group>"; };
 		963F0E2DD7F6B4D09759EEBD /* phone-recording.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone-recording.png"; sourceTree = "<group>"; };
@@ -103,6 +107,7 @@
 				362F84BFAF9D42B322D7C440 /* PopOutCompositorTests.swift */,
 				F8CE532DCABF989802234E4D /* ScreenQuadTests.swift */,
 				A0FA3DDF0E31C7E005F4D1C2 /* SubjectSegmenterTests.swift */,
+				6ECBE46B08AF80250BD5286C /* UIImageOrientedTests.swift */,
 			);
 			path = PeekpopTests;
 			sourceTree = "<group>";
@@ -173,6 +178,7 @@
 				BD96DEF1B85BF3A54F7B5C29 /* ImageLayout.swift */,
 				08FDEBA9FADB92CFEC4AEEB7 /* Screen.swift */,
 				BE4E7D467193401E59F7433C /* ScreenQuad.swift */,
+				72821667D5ECADFAAD944237 /* UIImage+Oriented.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -302,6 +308,7 @@
 				F9A5D4C932F63E819B546993 /* Screen.swift in Sources */,
 				F1CC67B0C6D1CA3CA5D34D51 /* ScreenQuad.swift in Sources */,
 				CAB2626DB09191E9558098F1 /* SubjectSegmenter.swift in Sources */,
+				300D72307434BD73F6288BDB /* UIImage+Oriented.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +322,7 @@
 				006A4BDA277CCE7D8CAA6238 /* PopOutCompositorTests.swift in Sources */,
 				EA479C1966516D18967B11FF /* ScreenQuadTests.swift in Sources */,
 				DCB24C98FC70BC57CA150A1B /* SubjectSegmenterTests.swift in Sources */,
+				58DC61A9F2AB070FA17F48A8 /* UIImageOrientedTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
